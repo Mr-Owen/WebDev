@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form action="/demo/demo_form.asp">       <!--点击提交后表单数据会被发送到名为demo_form.asp的页面-->
+First name:<br>
+<input type="text" name="firstname" value="Mickey">
+<br>
+Last name:<br>
+<input type="text" name="lastname" value="Mouse">
+<br><br>
+<input type="submit" value="Submit">      <!--确认提交按钮-->
+</form>
+
+</body>
+</html>
