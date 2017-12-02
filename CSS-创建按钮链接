@@ -16,7 +16,7 @@
 		background-position: left top;/*悬浮时，按键背景色为灰色*/
 	}
 	a:active{
-		background-position: right top;/*点击事，按键背景色为橙色*/
+		background-position: right top;/*点击时，按键背景色为橙色*/
 	}
 </style>
 </head>
