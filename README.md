@@ -1,2 +1,1 @@
-# WebDev
-前端学习历程
+// learn front end web development
