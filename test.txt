@@ -1,3 +1,0 @@
-test
-Git is a distributed vaersion control system.
-Git is free software distributed under te GPL.
