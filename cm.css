@@ -11,6 +11,9 @@ a {
 
 body {
   background: #f5f5f5;
+  color: #333;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
 }
 
@@ -40,8 +43,8 @@ em {
   float: left;
   font-size: 14px;
   height: 70px;
-  text-align: center;
   padding: 0 19px;
+  text-align: center;
 }
 
 /* 菜单链接字体相关 */
@@ -49,9 +52,9 @@ em {
 .g-topbar .m-top .logo {
   background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 0 no-repeat;
   float: left;
-  width: 176px;
   height: 69px;
   margin: 0;
+  width: 176px;
 }
 
 /* 左上角logo图片 */
@@ -60,8 +63,8 @@ em {
   color: #fff;
   float: left;
   height: 100%;
-  width: 176px;
   text-indent: -9999px;
+  width: 176px;
 }
 
 /* logo隐藏文字  */
@@ -98,18 +101,71 @@ a#topbar-download-link {
   height: 70px;
 }
 
-#g-srch {
-  border-radius: 20px;
+/* end menu */
+
+.srchbg {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 -99px #fff;
+  border-radius: 35px;
+  float: right;
+  height: 32px;
+  margin-top: 19px;
+  width: 158px;
 }
 
-/* 搜索框圆角 */
+.parent {
+  position: relative;
+  margin: 8px 0 0 30px;
+  /* 设置外边距控制文字的位置 */
+}
+
+label {
+  color: #969696;
+  cursor: text;
+  position: absolute;
+}
+
+input#search-area {
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 95%;
+}
+
+/* 搜索框 */
+
+.m-topvd {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 -140px;
+  box-sizing: border-box;
+  color: #fff;
+  height: 32px;
+  line-height: 32px;
+  margin: 19px 0 0 12px;
+  float: right;
+  padding-left: 32px;
+  width: 90px;
+}
+
+/* 视频投稿 */
+
+.n-tophead {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) right -44px;
+  float: right;
+  margin: 20px 0 0 20px;
+  padding-right: 22px;
+}
+
+.n-tophead img {
+  border-radius: 30px;
+}
+
+/* user-pic */
 
 /*================================== end .m-top ============================= */
 
 #g-nav2 {
   background: #c20c0c;
-  height: 35px;
   border: 1px solid #a40011;
+  height: 35px;
 }
 
 /* 设置行高和背景色 */
@@ -146,8 +202,8 @@ a#topbar-download-link {
 /* 设置列表项垂直居中 */
 
 .nav li a em {
-  padding: 0 13px;
   margin: 7px 17px 0;
+  padding: 0 13px;
 }
 
 /* 红条的文字间距 */
@@ -157,7 +213,7 @@ a#topbar-download-link {
   border-radius: 20px;
 }
 
-/*end g-nav2 */
+/*============================= end g-nav2 ===================================*/
 
 /* n-ban */
 
