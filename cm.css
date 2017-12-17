@@ -91,6 +91,7 @@ em {
 
 .m-nav a:hover, .m-nav a:focus, .m-nav a:active {
   background: #000;
+  color: #fff;
 }
 
 .g-topbar .m-top .fst, .g-topbar .m-top .lst {
@@ -136,13 +137,18 @@ input#search-area {
 .m-topvd {
   background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 -140px;
   box-sizing: border-box;
-  color: #fff;
+  color: #ccc;
   height: 32px;
   line-height: 32px;
   margin: 19px 0 0 12px;
   float: right;
   padding-left: 32px;
   width: 90px;
+}
+
+a.m-topvd:hover {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) -100px -140px;
+color: #fff;
 }
 
 /* 视频投稿 */
