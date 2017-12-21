@@ -6,6 +6,7 @@ html, body, ul {
 /* reset.css */
 
 a {
+  color: #000;
   text-decoration: none;
 }
 
@@ -21,7 +22,7 @@ em {
   font-style: normal;
 }
 
-/* 通用样式 */
+/* ==================================通用样式================================= */
 
 .m-top {
   background: #242424;
@@ -240,8 +241,11 @@ a.m-topvd:hover {
 
 /* end banner img */
 
+.ban .btnl, .ban .btnr, .ban .dots .pg, .ban .dots .pg1 {
+  background: url(http://s2.music.126.net/style/web2/img/index/banner.png?bc59) no-repeat 0 9999px;
+}
+
 .ban .btnl, .ban .btnr {
-  background: url(http://s2.music.126.net/style/web2/img/index/banner.png?bc59);
   display: block;
   text-indent: -9999px;
   width: 37px;
@@ -280,24 +284,28 @@ a.m-topvd:hover {
   text-align: center;
 }
 
-.ban .dots .pg {
-  background: url(http://s2.music.126.net/style/web2/img/index/banner.png?bc59) 3px -343px;
+.ban .dots .pg, .ban .dots .pg1 {
   display: inline-block;
   width: 20px;
   height: 20px;
 }
 
+.ban .dots .pg {
+  background-position: 3px -343px;
+}
+
 .ban .dots .pg1 {
-  background: url(http://s2.music.126.net/style/web2/img/index/banner.png?bc59) 25px -343px;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
+  background-position: 25px -343px;
 }
 
 /* end dots */
 
+.download, .download .btn, .download .btn:hover {
+  background: url(http://s2.music.126.net/style/web2/img/index/download.png?ab) no-repeat 0 9999px;
+}
+
 .download {
-  background: url(http://s2.music.126.net/style/web2/img/index/download.png?ab) no-repeat 0 0;
+  background-position: 0 0;
   position: absolute;
   top: 0;
   right: 0;
@@ -306,7 +314,7 @@ a.m-topvd:hover {
 }
 
 .download .btn {
-  background: url(http://s2.music.126.net/style/web2/img/index/download.png?ab) no-repeat 0 -9999px;
+  background-position: 0 -9999px;
   /* 此处给a标签设置背景并隐藏(亦可不写)，是因为让后面悬浮时让悬浮突出按钮覆盖背景图，达到突出效果 */
   display: block;
   width: 215px;
@@ -316,7 +324,7 @@ a.m-topvd:hover {
 }
 
 .download .btn:hover {
-  background: url(http://s2.music.126.net/style/web2/img/index/download.png?ab) no-repeat 0 -340px;
+  background-position: 0 -340px;
 }
 
 .download p {
@@ -329,10 +337,21 @@ a.m-topvd:hover {
 
 /*============================= index-banner =================================*/
 
+.v-hd2 a:hover {
+  text-decoration: underline;
+}
+
+.v-hd2 .tit:hover {
+  text-decoration: none;
+}
+
+/* 悬浮效果 */
+
 .g-mn1 {
   width: 980px;
   margin: 0 auto;
-  border: 1px solid #d3d3d3;
+  border-left: 1px solid #d3d3d3;
+  border-right: 1px solid #d3d3d3;
   overflow: hidden;
 }
 
@@ -350,6 +369,8 @@ a.m-topvd:hover {
 .more .s-bg, .v-hd2 {
   background: url(http://s2.music.126.net/style/web2/img/index/index.png?616dc963ab7c66678671f1f8cf8eeb04) 0 9999px no-repeat;
 }
+
+/* UI背景图 */
 
 .v-hd2 {
   background-position: -225px -156px;
@@ -385,7 +406,6 @@ a.m-topvd:hover {
 .v-hd2 .more {
   float: right;
   margin-top: 9px;
-  padding-right: 12px;
 }
 
 .more a {
@@ -402,8 +422,72 @@ a.m-topvd:hover {
 
 /* 更多 */
 
-/* 热门推荐菜单 */
+.f-cb {
+  overflow: hidden;
+  margin: 20px 0 0 -42px;
+}
 
-/* g-mn1 */
+.f-cb li {
+  float: left;
+  list-style: none;
+  height: 204px;
+  width: 140px;
+  padding: 0 0 30px 42px;
+}
 
-/* g-ft */
+.f-cb li a.msk {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 静态歌单 */
+
+.u-cover-1 {
+  height: 140px;
+  position: relative;
+  width: 140px;
+}
+
+.f-cb li {
+  line-height: 1.4;
+}
+
+.f-cb li p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.dec .s-fco:hover {
+  text-decoration: underline;
+}
+
+/* 推荐具体内容 */
+
+/* ===============================热门推荐菜单================================ */
+
+/* ==================================g-mn1=================================== */
+
+.g-ft {
+  border-top: 1px solid #d3d3d3;
+}
+
+/* ===================================g-ft=================================== */
+
+.m-back {
+  background: url(http://s2.music.126.net/style/web2/img/sprite.png?7910b9fb4bed3c47c0be513445c8337a) -265px -47px;
+  bottom: 160px;
+  display: block;
+  height: 44px;
+  left: 50%;
+  margin-left: 500px;
+  position: fixed;
+  text-indent: -9999px;
+  width: 49px;
+}
+
+.m-back:hover {
+  background-position: -325px -47px;
+}
