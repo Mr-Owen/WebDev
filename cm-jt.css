@@ -222,7 +222,7 @@ a.m-topvd:hover {
 /*============================= end g-nav2 ===================================*/
 
 .index-banner {
-  background: url(http://p1.music.126.net/pN1eL3NDxg0hj-1VskNz) #ccc;
+  background: url(http://p1.music.126.net/pN1eL3NDxg0hj-1VskNz) #9b0909;
 }
 
 .wrap-ban {
@@ -240,8 +240,7 @@ a.m-topvd:hover {
 
 /* end banner img */
 
-.ban .btnl,
-.ban .btnr {
+.ban .btnl, .ban .btnr {
   background: url(http://s2.music.126.net/style/web2/img/index/banner.png?bc59);
   display: block;
   text-indent: -9999px;
@@ -273,7 +272,7 @@ a.m-topvd:hover {
 /* end banner 箭头 */
 
 .ban .dots {
-  position:absolute;
+  position: absolute;
   left: 0;
   height: 20px;
   width: 730px;
@@ -294,6 +293,7 @@ a.m-topvd:hover {
   width: 20px;
   height: 20px;
 }
+
 /* end dots */
 
 .download {
@@ -328,6 +328,81 @@ a.m-topvd:hover {
 /* end download button */
 
 /*============================= index-banner =================================*/
+
+.g-mn1 {
+  width: 980px;
+  margin: 0 auto;
+  border: 1px solid #d3d3d3;
+  overflow: hidden;
+}
+
+/* 左内容区域 */
+
+.g-wrap3 {
+  float: left;
+  width: 689px;
+  padding: 20px 20px 40px;
+  border-right: 1px solid #d3d3d3;
+}
+
+/* 左内容 */
+
+.more .s-bg, .v-hd2 {
+  background: url(http://s2.music.126.net/style/web2/img/index/index.png?616dc963ab7c66678671f1f8cf8eeb04) 0 9999px no-repeat;
+}
+
+.v-hd2 {
+  background-position: -225px -156px;
+  height: 35px;
+  padding: 0 10px 0 34px;
+  border-bottom: 2px solid #9b0909;
+}
+
+/* 横条 */
+
+.v-hd2 .tit {
+  float: left;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333;
+}
+
+/* 横条单字 */
+
+.tab {
+  float: left;
+  margin: 7px 0 0 20px;
+}
+
+.tab a {
+  color: #333;
+}
+
+.tab .line {
+  margin: 0 10px 0 10px;
+}
+
+.v-hd2 .more {
+  float: right;
+  margin-top: 9px;
+  padding-right: 12px;
+}
+
+.more a {
+  color: #333;
+}
+
+.more .s-bg {
+  display: inline-block;
+  background-position: 0 -240px;
+  height: 12px;
+  margin-left: 4px;
+  width: 12px;
+}
+
+/* 更多 */
+
+/* 热门推荐菜单 */
 
 /* g-mn1 */
 
