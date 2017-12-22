@@ -348,11 +348,12 @@ a.m-topvd:hover {
 /* 悬浮效果 */
 
 .g-mn1 {
-  width: 980px;
-  margin: 0 auto;
+  background-color: #fff;
   border-left: 1px solid #d3d3d3;
   border-right: 1px solid #d3d3d3;
+  margin: 0 auto;
   overflow: hidden;
+  width: 980px;
 }
 
 /* 左内容区域 */
