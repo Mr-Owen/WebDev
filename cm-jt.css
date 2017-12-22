@@ -1,4 +1,4 @@
-html, body, ul {
+html, body, ul, p {
   padding: 0;
   margin: 0;
 }
@@ -460,6 +460,10 @@ a.m-topvd:hover {
   text-align: center;
 }
 
+.dec {
+  margin: 8px 0 3px;
+}
+
 .dec .s-fco:hover {
   text-decoration: underline;
 }
@@ -467,6 +471,88 @@ a.m-topvd:hover {
 /* 推荐具体内容 */
 
 /* ===============================热门推荐菜单================================ */
+
+.n-disk {
+  border: 1px solid #d3d3d3;
+  height: 186px;
+  margin: 20px 0 37px;
+}
+
+.inner {
+  background: #f5f5f5;
+  border: 1px solid #fff;
+  height: 184px;
+  padding-left: 16px;
+  position: relative;
+}
+
+.roll li,.inner .click-flag-l, .inner .click-flag-r {
+  background: url(http://s2.music.126.net/style/web2/img/index/index.png?616dc963ab7c66678671f1f8cf8eeb04) 0 9999px no-repeat;
+}
+
+.inner .click-flag-l, .inner .click-flag-r {
+  display: inline-block;
+  height: 17px;
+  position: absolute;
+  text-indent: -9999px;
+  width: 17px;
+}
+
+.inner .click-flag-l {
+  background-position: -280px -75px;
+  left: 4px;
+  top: 71px;
+}
+
+.inner .click-flag-r {
+  background-position: -300px -75px;
+  top: 71px;
+}
+
+.roll {
+  float: left;
+  height: 180px;
+  width: 645px;
+}
+
+.roll ul {
+  margin-top: 28px;
+}
+
+.roll li {
+  background-position: -260px 100px;
+  float: left;
+  height: 150px;
+  list-style: none;
+  margin-left: 11px;
+  width: 118px;
+}
+
+.f-thide {
+  line-height: 18px;
+}
+
+.s-fc3 {
+  color: #666;
+}
+
+.s-fc0:hover, .s-fc3:hover {
+  text-decoration: underline;
+}
+
+.u-cover-alb1 {
+  margin-bottom: 7px;
+  position: relative;
+}
+
+.u-cover-alb1 .msk {
+  background: url(http://s2.music.126.net/style/web2/img/coverall.png?17e33675e0a228274e531fb86bdfee99) 0 -570px no-repeat;
+  height: 100px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 118px;
+}
 
 /* ==================================g-mn1=================================== */
 
