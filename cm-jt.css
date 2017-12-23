@@ -1,4 +1,4 @@
-html, body, ul, p {
+html, body, ul, p, h3 {
   padding: 0;
   margin: 0;
 }
@@ -20,6 +20,10 @@ body {
 
 em {
   font-style: normal;
+}
+
+li {
+  list-style: none;
 }
 
 /* ==================================通用样式================================= */
@@ -306,21 +310,21 @@ a.m-topvd:hover {
 
 .download {
   background-position: 0 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 254px;
   height: 336px;
+  right: 0;
+  top: 0;
+  position: absolute;
+  width: 254px;
 }
 
 .download .btn {
   background-position: 0 -9999px;
   /* 此处给a标签设置背景并隐藏(亦可不写)，是因为让后面悬浮时让悬浮突出按钮覆盖背景图，达到突出效果 */
   display: block;
-  width: 215px;
   height: 56px;
   margin: 212px 0 0 19px;
   text-indent: -9999px;
+  width: 215px;
 }
 
 .download .btn:hover {
@@ -359,15 +363,15 @@ a.m-topvd:hover {
 /* 左内容区域 */
 
 .g-wrap3 {
-  float: left;
-  width: 689px;
-  padding: 20px 20px 40px;
   border-right: 1px solid #d3d3d3;
+  float: left;
+  padding: 20px 20px 40px;
+  width: 689px;
 }
 
 /* 左内容 */
 
-.more .s-bg, .v-hd2 {
+.s-bg, .v-hd2 {
   background: url(http://s2.music.126.net/style/web2/img/index/index.png?616dc963ab7c66678671f1f8cf8eeb04) 0 9999px no-repeat;
 }
 
@@ -375,18 +379,18 @@ a.m-topvd:hover {
 
 .v-hd2 {
   background-position: -225px -156px;
+  border-bottom: 2px solid #9b0909;
   height: 35px;
   padding: 0 10px 0 34px;
-  border-bottom: 2px solid #9b0909;
 }
 
 /* 横条 */
 
 .v-hd2 .tit {
+  color: #333;
   float: left;
   font-size: 20px;
   line-height: 28px;
-  color: #333;
 }
 
 /* 横条单字 */
@@ -414,8 +418,8 @@ a.m-topvd:hover {
 }
 
 .more .s-bg {
-  display: inline-block;
   background-position: 0 -240px;
+  display: inline-block;
   height: 12px;
   margin-left: 4px;
   width: 12px;
@@ -424,24 +428,26 @@ a.m-topvd:hover {
 /* 更多 */
 
 .f-cb {
-  overflow: hidden;
   margin: 20px 0 0 -42px;
+  overflow: hidden;
 }
 
 .f-cb li {
   float: left;
-  list-style: none;
   height: 204px;
-  width: 140px;
+  list-style: none;
   padding: 0 0 30px 42px;
+  width: 140px;
 }
 
 .f-cb li a.msk {
+  background: url(http://s2.music.126.net/style/web2/img/coverall.png?c0c4e108ed7bab4168fd316a6ca76096) 0 9999px no-repeat;
+  background-position: 0 0;
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
 }
 
 /* 静态歌单 */
@@ -487,7 +493,7 @@ a.m-topvd:hover {
   position: relative;
 }
 
-.roll li,.inner .click-flag-l, .inner .click-flag-r {
+.roll li, .inner .click-flag-l, .inner .click-flag-r {
   background: url(http://s2.music.126.net/style/web2/img/index/index.png?616dc963ab7c66678671f1f8cf8eeb04) 0 9999px no-repeat;
 }
 
@@ -553,6 +559,146 @@ a.m-topvd:hover {
   position: absolute;
   top: 0;
   width: 118px;
+}
+
+/* ===============================End 新碟上架================================ */
+
+.n-bill {
+  height: 527px;
+  width: 689px;
+}
+
+.n-blist {
+  background: url(http://s2.music.126.net/style/web2/img/index/index_bill.png?c2b48288872b272c1cfc9023d5037a20) no-repeat;
+  height: 472px;
+  margin-top: 20px;
+  padding-left: 1px;
+}
+
+.blk {
+  float: left;
+  height: 472px;
+  margin: 0;
+  width: 229px;
+}
+
+.top {
+  height: 100px;
+  padding: 20px 0 0 19px;
+}
+
+/* 图片内边距设置 */
+
+.cver a {
+  background: url(http://s2.music.126.net/style/web2/img/coverall.png?c0c4e108ed7bab4168fd316a6ca76096) 0 9999px no-repeat;
+}
+
+.cver {
+  float: left;
+  height: 80px;
+  position: relative;
+  width: 80px;
+}
+
+.cver img {
+  height: 100%;
+  width: 100%;
+}
+
+.cver a {
+  background-position: -145px -57px;
+  height: 80px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 80px;
+}
+
+/* end 榜单图片设置 */
+
+.tit-1 {
+  float: left;
+  margin: 6px 0 0 10px;
+  width: 116px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.btn .s-bg {
+  display: block;
+  float: left;
+  margin-right: 10px;
+  height: 22px;
+  text-indent: -9999px;
+  width: 22px;
+}
+
+.s-bg-9 {
+  background-position: -267px -205px;
+}
+
+.s-bg-10 {
+  background-position: -300px -205px;
+}
+
+.s-bg-9:hover {
+  background-position: -267px -235px;
+}
+
+.s-bg-10:hover {
+  background-position: -300px -235px;
+}
+
+.tit-1 a:hover {
+  text-decoration: underline;
+}
+
+/* end 榜单文字 */
+
+dd {
+  margin: 0;
+}
+
+dd ol {
+  line-height: 32px;
+  margin: 0 0 0 50px;
+  padding: 0;
+}
+
+dd ol li {
+  height: 32px;
+  width: 180px;
+}
+
+dd ol .no {
+  display: inline-block;
+  font-size: 16px;
+  height: 32px;
+  margin-left: -35px;
+  text-align: center;
+  width: 35px;
+}
+
+dd ol .no-top {
+  color: #c10d0c;
+}
+
+ol li a:hover {
+  text-decoration: underline;
+}
+
+/* 榜单内容 */
+
+.more-1 {
+  margin-right: 32px;
+  float: right;
+  line-height: 32px;
+}
+
+.more-1 a:hover {
+  text-decoration: underline;
 }
 
 /* ==================================g-mn1=================================== */
