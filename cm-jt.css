@@ -52,6 +52,22 @@ li {
   text-align: center;
 }
 
+.m-nav .z-slt {
+  background-color: #000;
+  position: relative;
+}
+
+.z-slt .cor {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?debf522a10451b0bc56a92753c59baa4) -226px 0 no-repeat;
+  display: block;
+  height: 7px;
+  margin-left: -6px;
+  top: 64px;
+  left: 50%;
+  position: absolute;
+  width: 12px;
+}
+
 /* 菜单链接字体相关 */
 
 .g-topbar .m-top .logo {
@@ -101,6 +117,19 @@ li {
 
 .g-topbar .m-top .fst, .g-topbar .m-top .lst {
   padding: 0;
+}
+
+.lst {
+  position: relative;
+}
+
+.lst .hot {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?debf522a10451b0bc56a92753c59baa4) -190px 0 no-repeat;
+  height: 19px;
+  position: absolute;
+  left: 100px;
+  top: 21px;
+  width: 28px;
 }
 
 a#topbar-download-link {
@@ -206,20 +235,22 @@ a.m-topvd:hover {
 
 .nav li a {
   color: #fff;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 34px;
 }
 
 /* 设置列表项垂直居中 */
 
 .nav li a em {
+  display: inline-block;
+  line-height: 21px;
   margin: 7px 17px 0;
   padding: 0 13px;
 }
 
 /* 红条的文字间距 */
 
-.nav li a:hover em {
+.nav li a:hover em, .nav a.z-slt em {
   background: #9b0909;
   border-radius: 20px;
 }
@@ -227,7 +258,7 @@ a.m-topvd:hover {
 /*============================= end g-nav2 ===================================*/
 
 .index-banner {
-  background: url(http://p1.music.126.net/pN1eL3NDxg0hj-1VskNz) #9b0909;
+  background: url(http://p1.music.126.net/jUyqs2eHFIR5G5LSCkzIDw==/18987466300573654.jpg);
 }
 
 .wrap-ban {
@@ -705,9 +736,104 @@ ol li a:hover {
 
 .g-ft {
   border-top: 1px solid #d3d3d3;
+  height: 140px;
 }
 
-/* ===================================g-ft=================================== */
+.m-ft {
+  height: 91px;
+  margin: 0 auto;
+  width: 980px;
+}
+
+.copy {
+  float: left;
+  height: 83px;
+  padding-top: 35px;
+  width: 490px;
+}
+
+.copy p {
+  height: 24px;
+  width: 490px;
+}
+
+.copy p .s-fc4 {
+  color: #999;
+}
+
+.s-fc4:hover, .s-fc5:hover {
+  text-decoration: underline;
+}
+
+.copy p .line {
+  color: #c2c2c2;
+  margin-left: 10px;
+  margin-right: 8px;
+}
+
+p .sep {
+  margin-right: 14px;
+}
+
+/* end footer left */
+
+.f-fr {
+  float: right;
+  height: 70px;
+  margin-top: 21px;
+  width: 330px;
+}
+
+.f-fr a {
+  float: left;
+  height: 70px;
+  text-indent: -9999px;
+  width: 60px;
+}
+
+.f-fr .f-tid {
+  margin-left: 30px;
+}
+
+.f-fr .f-tid, .f-fr .f-tid-1 {
+  background: url(http://s2.music.126.net/style/web2/img/foot_enter.png?20f59154c57003df3d9eae291096079a) 0 9999px no-repeat;
+}
+
+.f-fr .logo-musician {
+  background-position: -60px -80px;
+}
+
+.f-fr .logo-topic {
+  background-position: 0 -80px;
+}
+
+.f-fr .logo-media {
+  background-position: 0 0;
+}
+
+.f-fr .logo-reward {
+  background-position: -60px 0;
+}
+
+.f-fr .logo-musician:hover {
+  background-position: -60px -230px;
+}
+
+.f-fr .logo-topic:hover {
+  background-position: 0 -230px;
+}
+
+.f-fr .logo-media:hover {
+  background-position: 0 -150px;
+}
+
+.f-fr .logo-reward:hover {
+  background-position: -60px -150px;
+}
+
+/* end footer right */
+
+/* ==================================End g-ft================================ */
 
 .m-back {
   background: url(http://s2.music.126.net/style/web2/img/sprite.png?7910b9fb4bed3c47c0be513445c8337a) -265px -47px;
@@ -724,3 +850,4 @@ ol li a:hover {
 .m-back:hover {
   background-position: -325px -47px;
 }
+/* =============================Back to top================================== */
