@@ -1,4 +1,4 @@
-html, body, ul, p, h3 {
+html, body, ul, li, p, h3, h4 {
   padding: 0;
   margin: 0;
 }
@@ -370,7 +370,17 @@ a.m-topvd:hover {
 
 /* end download button */
 
-/*============================= index-banner =================================*/
+/*================================ index-banner ==============================*/
+
+.g-bd1 {
+  border: 1px solid #d3d3d3;
+  min-width: 700px;
+  margin: 0 auto;
+  overflow: hidden;
+  width: 980px;
+}
+
+/* =================================End g-bd1================================ */
 
 .v-hd2 a:hover {
   text-decoration: underline;
@@ -384,9 +394,8 @@ a.m-topvd:hover {
 
 .g-mn1 {
   background-color: #fff;
-  border-left: 1px solid #d3d3d3;
-  border-right: 1px solid #d3d3d3;
-  margin: 0 auto;
+  float: left;
+  margin-right: -250px;
   overflow: hidden;
   width: 980px;
 }
@@ -734,6 +743,157 @@ ol li a:hover {
 
 /* ==================================g-mn1=================================== */
 
+.g-sd1 {
+  float: right;
+  width: 250px;
+}
+
+.n-myinfo, .n-myinfo a {
+  background: url(http://s2.music.126.net/style/web2/img/index/index.png?a2122f389ebb62d1873991d9822aa93c) 0 9999px no-repeat;
+}
+
+.n-myinfo {
+  background-position: 0 0;
+  height: 126px;
+  width: 250px;
+}
+
+.n-myinfo .note {
+  color: #666;
+  height: 44px;
+  line-height: 22px;
+  margin: 0 auto;
+  padding: 16px 0;
+  width: 205px;
+}
+
+.n-myinfo a {
+  background-position: 0 -195px;
+  color: #fff;
+  display: block;
+  height: 31px;
+  line-height: 31px;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 0 1px 0 #8a060b;
+  width: 100px;
+}
+
+.n-myinfo a:hover {
+  background-position: -110px -195px;
+}
+
+.n-singer {
+  font-size: 12px;
+  margin-top: 15px;
+  width: 250px;
+}
+
+.v-hd3 {
+  border-bottom: 1px solid #ccc;
+  font-size: 100%;
+  height: 23px;
+  margin: 0 20px;
+  width: 210px;
+}
+
+.v-hd3 .more {
+  float: right;
+  font-weight: normal;
+}
+
+.v-hd3 .more:hover {
+  text-decoration: underline;
+}
+
+.singer-list {
+  margin: 6px 0 14px 20px;
+}
+
+.singer-list li {
+  height: 62px;
+  margin-top: 14px;
+  width: 210px;
+}
+
+.singer-list .itm {
+  background: #fafafa;
+  display: block;
+  height: 62px;
+  width: 210px;
+}
+
+.singer-list .itm:hover {
+  background: #f3f3f3;
+}
+
+.singer-list .itm img {
+  float: left;
+}
+
+.singer-list .itm .ifo {
+  border: 1px solid #e9e9e9;
+  border-left: none;
+  float: left;
+  height: 60px;
+  padding-left: 14px;
+  width: 133px;
+}
+
+.ifo h4, .ifo p {
+  margin-top: 8px;
+}
+
+.ifo h4 {
+  font-size: 14px;
+}
+
+.ifo p, .v-hd3 .more {
+  color: #666;
+}
+
+/* end 歌手列表 */
+
+.u-btn2, .u-btn2 i {
+  background: url(http://s2.music.126.net/style/web2/img/button2.png?4dd70509c3c58b88f39a27c173805db5) 0 9999px no-repeat;
+}
+
+.u-btn2 {
+  background-position: right -100px;
+  border-radius: 4px;
+  display: inline-block;
+  height: 31px;
+  line-height: 31px;
+  margin-left: 20px;
+  padding-right: 4px;
+}
+
+.u-btn2 i {
+  background-position: 0 -59px;
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  padding: 0 15px 0 20px;
+  text-align: center;
+  width: 170px;
+}
+
+.u-btn2:hover {
+  background-position: right -182px;
+}
+
+.u-btn2:hover i {
+  background-position: 0 -141px;
+}
+
+/* end 入驻歌手 */
+
+.n-dj {
+  margin-top: 30px;
+}
+
+/* ================================End g-sd1================================= */
+
 .g-ft {
   border-top: 1px solid #d3d3d3;
   height: 140px;
@@ -850,4 +1010,5 @@ p .sep {
 .m-back:hover {
   background-position: -325px -47px;
 }
+
 /* =============================Back to top================================== */
