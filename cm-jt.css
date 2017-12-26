@@ -892,6 +892,54 @@ ol li a:hover {
   margin-top: 30px;
 }
 
+.hot-dj {
+  margin: 20px 0 0 20px;
+}
+
+.hot-dj li {
+  height: 50px;
+  width: 210px;
+}
+
+.hot-dj li .dj-img {
+  float: left;
+  margin-right: 10px;
+}
+
+.hot-dj li .info {
+  float: left;
+}
+
+.hot-dj .info p {
+  margin-top: 5px;
+  color: #666;
+}
+
+.hot-dj .info .dj-link:hover {
+  text-decoration: underline;
+}
+
+.hot-dj .info .u-icn {
+  background: url(http://s2.music.126.net/style/web2/img/icon.png?5c9b3e18ab0221b3850cbc376b049fc2) 0 9999px no-repeat;
+  background-position: 0 1px;
+  display: inline-block;
+  height: 13px;
+  margin-top: -1px;
+  vertical-align: middle;
+  width: 11px;
+}
+
+.info {
+  width: 160px;
+}
+
+.info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
 /* ================================End g-sd1================================= */
 
 .g-ft {
