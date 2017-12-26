@@ -44,8 +44,10 @@
         <!-- end 视频投稿 -->
         <div class="srchbg">
           <div class="parent">
-            <label for="search-area">音乐/视频/电台/用户</label>
-            <input type="text" name="content-search" id="search-area">
+            <label for="search-area"></label>
+            <input type="text" value="音乐/视频/电台/用户" name="content-search" id="search-area"
+            onclick="if(value=='音乐/视频/电台/用户'){value=''}"
+            onblur="if(value==''){value='音乐/视频/电台/用户'}">
           </div>
         </div>
         <!-- end search area -->

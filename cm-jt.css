@@ -156,12 +156,16 @@ a#topbar-download-link {
 label {
   color: #969696;
   cursor: text;
+  height: 20px;
+  width: 120px;
   position: absolute;
 }
 
 input#search-area {
   background: transparent;
   border: 0;
+  color: #666;
+  font-size: 12px;
   outline: none;
   width: 95%;
 }
@@ -363,7 +367,7 @@ a.m-topvd:hover {
 }
 
 .download p {
-  color: #ccc;
+  color: #8d8d8d;
   margin: 10px 0;
   text-align: center;
 }
