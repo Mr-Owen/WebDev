@@ -484,14 +484,17 @@ a.m-topvd:hover {
   width: 140px;
 }
 
-.f-cb li a.msk {
+.f-cb li a.msk, .bottom {
   background: url(http://s2.music.126.net/style/web2/img/coverall.png?c0c4e108ed7bab4168fd316a6ca76096) 0 9999px no-repeat;
-  background-position: 0 0;
   height: 100%;
   left: 0;
   position: absolute;
-  top: 0;
   width: 100%;
+}
+
+.f-cb li a.msk {
+  background-position: 0 0;
+  top: 0;
 }
 
 /* 静态歌单 */
@@ -501,6 +504,43 @@ a.m-topvd:hover {
   position: relative;
   width: 140px;
 }
+
+.bottom {
+  background-position: 0 -537px;
+  bottom: 0;
+  color: #ccc;
+  height: 27px;
+  left: 0;
+  width: 140px;
+}
+
+.bottom .icon-headset,
+.bottom .icon-play {
+  background: url(http://s2.music.126.net/style/web2/img/iconall.png?2aad0fd10cb2bb289f473e07d84e3c89) 0 -9999px no-repeat;
+}
+
+.bottom .icon-headset {
+  background-position: 0 -24px;
+  float: left;
+  height: 11px;
+  margin: 9px 5px 9px 10px;
+  width: 14px;
+}
+
+.bottom .icon-play {
+  background-position: 0 0;
+  float: right;
+  height: 17px;
+  margin: 5px 10px 5px 0;
+  width: 16px;
+}
+
+.bottom .nb {
+  float: left;
+  margin-top: 6px;
+}
+
+/* 歌单按钮设置 */
 
 .f-cb li {
   line-height: 1.4;
