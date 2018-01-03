@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style type="text/css">
+    body {
+      background: #666;
+    }
+
+    .search-area {
+      background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 -99px #fff;
+      border-radius: 35px;
+      width: 200px;
+      height: 32px
+    }
+
+    input#search-box {
+      background: transparent;
+      border: 0;
+      margin: 6px 0 0 30px;
+      outline: none;
+      position: relative;
+    }
+
+    input#submit-button {
+      left: 220px;
+      top: 12px;
+      position: absolute;
+    }
+  </style>
+  <title>Closure Example</title>
+</head>
+
+<body>
+  <div class="search-area">
+    <input type="search" name="get-name" id="search-box" placeholder="Input your name">
+    <input type="button" value="Submit" id="submit-button" onclick="userName()">
+    <script type="text/javascript">
+      function userName() {
+        var setInputName = document.getElementById("search-box").value;
+        // 取得输入框文本
+        alert('>>>Your name is '+setInputName.toString()+'<<<');
+      }
+    </script>
+  </div>
+
+</body>
+
+</html>
