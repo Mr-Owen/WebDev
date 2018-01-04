@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>遍历元素特性</title>
+</head>
+
+<body>
+  <div id="myAttr" class="someText" title="bodyText" lang="en" dir="ltr"
+  my_special_attribute="hello!">Some normal text</div>
+  <input type="button" value="Find element" onclick="foo()">
+  <script type="text/javascript">
+    function findElement(element) {
+      var a = new Array(),
+        attrName,
+        attrValue;
+      for (var i = 0; i < element.attributes.length; i++) {
+        attrName = element.attributes[i].nodeName;
+        attrValue = element.attributes[i].nodeValue;
+        a.push(attrName + " = \"" + attrValue + '\"\n');
+      }
+      return a.join('');
+      //join()方法将数组（或一个类数组对象）的所有元素连接到一个字符串中
+    }
+
+    function foo() {
+      alert(findElement(document.getElementById("myAttr")));
+    }
+  </script>
+</body>
+
+</html>
