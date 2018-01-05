@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
+  <meta charset="UTF-8">
   <title>超时调用模拟间歇调用</title>
 </head>
 
 <body>
+  <input type="search" name="input-area" id="countdown" placeholder="输入倒计时">
+  <input type="button" value="Submit" onclick="getNum()">
   <script type="text/javascript">
-    var a = 0;
+    var num;
 
-    (function foo() {
-      a++;
-      if (a <= 10) {
-        document.write(a + "<br />");
+    function getNum() {
+      num = document.getElementById('countdown').value;
+      // 获取输入数字
+      foo();
+    }
+
+    function foo() {
+      if (num > 0) {
+        document.write(num + "<br />");
         setTimeout(foo, 1000);
+        num = num - 1;
       } else {
+        document.write(num + "<br />");
         alert('Mission Completed');
       }
-    })()
+    }
   </script>
 </body>
 
