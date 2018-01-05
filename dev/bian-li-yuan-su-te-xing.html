@@ -15,7 +15,7 @@
         attrName,
         attrValue;
         len;
-        // 此处不直接引用i < element.attributes.length;是因为NameNodeMap对象是动态查询的结果，当循环体中出现增加标签语句 ，将导致for循环无限循环下去
+        // 此处不直接引用i < element.attributes.length;是因为NameNodeMap对象是动态查询的结果，当循环体中出现增加属性语句 ，将导致for循环无限循环下去
         // 此处引用变量len保存element.attributes.length在for循环开始时的一个快照，减少了对NameNodeMap对象的访问
       for (var i = 0, len = element.attributes.length; i < len; i++) {
         attrName = element.attributes[i].nodeName;
