@@ -3,29 +3,42 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>超时调用模拟间歇调用</title>
+  <title>倒计时——超时调用模拟间歇调用</title>
+  <style media="screen">
+    div {
+      font-size: 100px;
+      margin: 0 auto;
+      line-height: 200px;
+      text-align: center;
+      width: 980px;
+    }
+
+  </style>
 </head>
 
 <body>
   <!-- 支持chrome和firefox使用 -->
-  <input type="search" name="input-area" id="countdown" placeholder="输入倒计时">
-  <input type="button" value="Submit" onclick="getNum()">
+  <div class="inputarea">
+    <input type="search" name="input-area" id="countdown" placeholder="输入倒计时">
+    <input type="button" value="Submit" onclick="getNum()">
+  </div>
+  <div class="outputarea"></div>
   <script type="text/javascript">
     var num;
+    var outputarea = document.querySelector('.outputarea');
 
     function getNum() {
       num = document.getElementById('countdown').value;
-      // 获取输入数字
+      // 获取用户输入数字
       foo();
     }
 
     function foo() {
-      if (num > 0) {
-        document.write(num + "<br />");
+      if (num >= 0) {
+        outputarea.innerHTML = num;
         setTimeout(foo, 1000);
-        num = num - 1;
+        num -= 1;
       } else {
-        document.write(num + "<br />");
         alert('Mission Completed');
       }
     }
