@@ -12,36 +12,42 @@
       text-align: center;
       width: 980px;
     }
-
   </style>
 </head>
 
 <body>
   <!-- 支持chrome和firefox使用 -->
   <div class="inputarea">
-    <input type="search" name="input-area" id="countdown" placeholder="输入倒计时">
-    <input type="button" value="Submit" onclick="getNum()">
+    <input type="search" name="input-area" id="inputValue" placeholder="输入倒计时">
+    <input type="button" class='textValue' value="Submit">
   </div>
   <div class="outputarea"></div>
   <script type="text/javascript">
     var num;
+    var inputButton = document.querySelector('.textValue');
     var outputarea = document.querySelector('.outputarea');
 
     function getNum() {
-      num = document.getElementById('countdown').value;
-      // 获取用户输入数字
-      foo();
+      num = document.getElementById('inputValue').value;
+      // 获取用户输入数字，得到的类型为字符串
+      if (Number(num)) {
+        countdown();
+      } else {
+        outputarea.innerHTML = 'Please input right number';
+      }
+      //检验输入的值是否可以转换为数值
     }
 
-    function foo() {
-      if (num >= 0) {
-        outputarea.innerHTML = num;
-        setTimeout(foo, 1000);
+    function countdown() {
+      if (num > 0) {
+        outputarea.innerHTML = num + '秒';
+        setTimeout(countdown, 1000);
         num -= 1;
       } else {
-        alert('Mission Completed');
+        outputarea.innerHTML = num + '秒' + '<br />' + 'Mission Completed';
       }
     }
+    inputButton.addEventListener('click', getNum, false);
   </script>
 </body>
 
