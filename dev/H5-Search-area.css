@@ -1,0 +1,46 @@
+body {
+  background: #666;
+}
+
+.srchbg {
+  background: url(http://s2.music.126.net/style/web2/img/frame/topbar.png?b83b70527b32537c78dcf345a82883f3) 0 -99px #fff;
+  border-radius: 35px;
+  height: 32px;
+  margin: 500px auto;
+  position: relative;
+  width: 200px;
+}
+
+input {
+  background: transparent;
+  border: 0;
+  margin: 6px 0 0 30px;
+  outline: none;
+}
+
+.list {
+  left: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 35px;
+  width: 178px;
+}
+
+.list li {
+  background: #ccc;
+  border-bottom: 1px solid #888;
+  line-height: 40px;
+  padding-left: 20px;
+}
+
+.list li:hover {
+  background: #999;
+}
+
+.list a {
+  color: #000;
+  display: block;
+  text-decoration: none;
+}
