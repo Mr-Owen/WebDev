@@ -1,19 +1,31 @@
+<!-- 已测试firefox、IE11、Chrome -->
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script type="text/javascript" defer src="H5-Search-area.js"></script>
+  <!--
+  脚本执行默认是同步和阻塞的。标签添加defer属性，异步加载外部脚本，使浏览器不用在下载脚
+  本时阻塞文档解析，待文档解析完成执行脚本。最好只包含一个defer外部脚本。
+  多个defer属性或aysnc属性外部脚本不一定是按照顺序执行。
+  defer属性脚本不一定在DOMContentLoaded事件之前执行。
+   -->
+  <!-- 法二：加载外部脚本
   <script type="text/javascript">
     function load(event) {
       var script = document.createElement('script');
       script.src = 'H5-Search-area.js'
       document.head.appendChild(script);
-      //页面加载后再加载脚本
+      //页面加载完成后再加载JS外部文件
     }
     window.addEventListener('load', load, false);
-    //根据DOM2规范，应该在document上触发load事件，但所有浏览器都在window上实现了该事件，以确保向后兼容
+    //根据DOM2规范，应该在document上触发load事件，但所有浏览器都在window上实现了该事
+    件，以确保向后兼容
+    //必须在window上设置该事件处理程序
   </script>
+   -->
   <link rel="stylesheet" href="H5-Search-area.css">
 </head>
 
@@ -21,10 +33,10 @@
   <div class="srchbg">
     <input type="search" name="search" id="search" placeholder="回车确认">
     <ul class="list" style="visibility:hidden;">
-      <li><a href="">Item 1</a></li>
-      <li><a href="">Item 2</a></li>
-      <li><a href="">Item 3</a></li>
-      <li><a href="">Item 4</a></li>
+      <li class='Alibaba'>Alibaba</li>
+      <li class='Baidu'>Baidu</li>
+      <li class='Tencent'>Tencent</li>
+      <li class='Huawei'>Huawei</li>
     </ul>
   </div>
 
