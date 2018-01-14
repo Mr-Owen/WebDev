@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<!-- 暂时仅支持chrome -->
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" defer src="form.js"></script>
+  <style>
+    form {
+      margin: 0 auto;
+      padding-left: 50px;
+      width: 980px;
+    }
+
+    span.warn {
+      color: red;
+    }
+
+    input,
+    select {
+      display: block;
+      margin: 10px 0;
+      height: 25px;
+      width: 280px;
+    }
+
+    .platform {
+      height: auto;
+    }
+
+    .textcard {
+      display: inline;
+      margin: 0 5px;
+      width: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="javascript:console.log('Your form has been upload');" class="form">
+    <h1>About you</h1>
+    <p>Your Name<span class="warn">*</span>:</p>
+    <input type="text" autofocus required name="guestname" id="textname" placeholder="Input your name">
+    <select class="sex" name="sex">
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Secret">Secret</option>
+    </select>
+    <p>Your Security Question</p>
+    <select class="sq1" name="securityQuestion-1">
+      <option value="default">Security Question 1</option>
+      <option value="petname">What was your name of your first pet ?</option>
+      <option value="firstgo">Where did you go the first time you flew on a plane ?</option>
+    </select>
+    <input type="text" name='sq-1' class="sq1" placeholder="Answer">
+    <select class="sq2" name="securityQuestion-2">
+      <option value="default">Security Question 2</option>
+      <option value="petname">What was your name of your first pet ?</option>
+      <option value="firstgo">Where did you go the first time you flew on a plane ?</option>
+    </select>
+    <input type="text" name='sq-2' class="sq2" placeholder="Answer">
+    <p>Your Email:</p>
+    <input type="email" name="textemail" id="textemail" placeholder="Input your your email">
+    <p>Your Password:</p>
+    <input type="password" name="textpass" id="textpass" placeholder="Input your password">
+    <p>Comfirm Password:</p>
+    <input type="password" name="textpass1" id="textpass1" placeholder="Comfirm your password">
+    <span class="warn"></span>
+    <p>Your Platform:</p>
+    <!-- 多选 -->
+    <select name="platform" multiple class="platform">
+      <option value="Windows">Windows</option>
+      <option value="Linux">Linux</option>
+      <option value="Mac OS">Mac OS</option>
+      <option value="PlayStation 4">PlayStation 4</option>
+    </select>
+    <div class="your-birth">
+      <p>Your Birth:</p>
+      <!-- IE11不支持type="date" -->
+      <input type="date" name='textbirth' class="textbirth" maxlength="2" size="1">
+    </div>
+    <!-- 自动切换焦点 -->
+    <div class="your-card">
+      <p>Your Card:</p>
+      <input type="text" name="textcard1" class="textcard" maxlength="4" size="1">
+      <span>—</span>
+      <input type="text" name="textcard2" class="textcard" maxlength="4" size="1">
+      <span>—</span>
+      <input type="text" name="textcard3" class="textcard" maxlength="4" size="1">
+      <span>—</span>
+      <input type="text" name="textcard4" class="textcard" maxlength="4" size="1">
+    </div>
+    <div class="comment">
+      <p>Your Comment</p>
+      <textarea name="textarea" rows="8" cols="40" id='comment-area'>Please leave your message.</textarea>
+    </div>
+    <div class="button">
+      <input type="submit" name='s-button' class="button-s" value="Submit">
+    </div>
+  </form>
+</body>
+
+</html>
