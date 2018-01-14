@@ -8,7 +8,7 @@ var sq1 = document.querySelector('select.sq1');
 var sq2 = document.querySelector('select.sq2');
 var button = document.querySelector('.button-s');
 
-//building function
+//Constructor
 
 UnitEvent = {
   addHandler: function(element, type, fn) {
