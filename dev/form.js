@@ -32,6 +32,7 @@ function getFocus(event) {
   }
 }
 
+// 密码验证是否一样
 function testPass(event) {
   if (pass.value != pass1.value) {
     // 最后submit事件验证不通过则阻止提交
@@ -125,5 +126,5 @@ function getAll(form) {
 function getAllValue(event) {
   alert(getAll(form));
 }
-// 检测能否取值
+// 检测能否取值，click事件先于submit事件。此时无法提交，若提交form则删除此监听器
 UnitEvent.addHandler(button, 'click', getAllValue);

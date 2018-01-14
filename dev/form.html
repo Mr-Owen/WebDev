@@ -13,7 +13,7 @@
       width: 980px;
     }
 
-    span.warn {
+    span.warn,.nes {
       color: red;
     }
 
@@ -34,13 +34,16 @@
       margin: 0 5px;
       width: 40px;
     }
+    #textpass1 {
+      display: inline;
+    }
   </style>
 </head>
 
 <body>
   <form action="javascript:console.log('Your form has been upload');" class="form">
     <h1>About you</h1>
-    <p>Your Name<span class="warn">*</span>:</p>
+    <p>Your Name<span class="nes">*</span>:</p>
     <input type="text" autofocus required name="guestname" id="textname" placeholder="Input your name">
     <select class="sex" name="sex">
       <option value="Male">Male</option>
@@ -67,7 +70,7 @@
     <p>Comfirm Password:</p>
     <input type="password" name="textpass1" id="textpass1" placeholder="Comfirm your password">
     <span class="warn"></span>
-    <p>Your Platform:</p>
+    <p>Your Platform:&nbsp;(Hold Ctrl and click)</p>
     <!-- 多选 -->
     <select name="platform" multiple class="platform">
       <option value="Windows">Windows</option>
