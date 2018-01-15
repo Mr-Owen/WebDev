@@ -24,29 +24,36 @@ UnitEvent = {
 function getFocus(event) {
   switch (event.target.style.backgroundColor) {
     case '':
-      event.target.style.backgroundColor = 'whitesmoke'; //此处使用#f3f3f3失效
-      break;
+      event.target.style.backgroundColor = 'whitesmoke';
+      break;// 此处使用#f3f3f3失效，失焦后无法恢复
     case 'whitesmoke':
       event.target.style.backgroundColor = '';
       break;
   }
 }
 
-// 密码验证是否一样
 function testPass(event) {
+  // 验证密码是否为空，是否一致
+  if(!!pass.value){
+    document.querySelector('span.warnpass').innerText = '';
+  }
   if (pass.value != pass1.value) {
     // 最后submit事件验证不通过则阻止提交
     event.preventDefault();
     // innerText由浅入深的顺序包含操作元素的所有文本内容
     // 此处亦可使用innerHTML属性
-    document.querySelector('span.warn').innerText = '两次密码输入不一致';
+    document.querySelector('span.warndiff').innerText = '两次密码输入不一致';
   } else {
-    document.querySelector('span.warn').innerText = '';
+    document.querySelector('span.warndiff').innerText = '';
+  }
+  // 当性别栏为默认选项时，弹出提示，选择非默认项且失焦后，提示消失
+  if(!form.elements['gender'].options[0].selected){
+    document.querySelector('span.warngender').innerText = '';
   }
 }
 UnitEvent.addHandler(form, 'focusin', getFocus);
 UnitEvent.addHandler(form, 'focusout', getFocus);
-UnitEvent.addHandler(pass1, 'focusout', testPass);
+UnitEvent.addHandler(form, 'focusout', testPass);
 
 //Event keypress or keydown in text
 
@@ -91,8 +98,19 @@ function change(event) {
 UnitEvent.addHandler(pass, 'change', change);
 
 //Event submit
-
+// 验证密码在event focusout验证
+function testForm(event){
+  if(form.elements['gender'].options[0].selected){
+    event.preventDefault();
+    document.querySelector('.warngender').innerText = 'Please select your gender';
+  }
+  if(!form.elements['textpass'].value){
+    event.preventDefault();
+    document.querySelector('.warnpass').innerText = 'Please input your password';
+  }
+}
 UnitEvent.addHandler(form, 'submit', testPass);
+UnitEvent.addHandler(form, 'submit', testForm);
 
 // Event click
 
@@ -127,4 +145,4 @@ function getAllValue(event) {
   alert(getAll(form));
 }
 // 检测能否取值，click事件先于submit事件。此时无法提交，若提交form则删除此监听器
-UnitEvent.addHandler(button, 'click', getAllValue);
+// UnitEvent.addHandler(button, 'click', getAllValue);

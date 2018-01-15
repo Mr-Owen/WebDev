@@ -13,13 +13,18 @@
       width: 980px;
     }
 
-    span.warn,.nes {
+    span {
       color: red;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    span.special {
+      color: #000;
     }
 
     input,
     select {
-      display: block;
       margin: 10px 0;
       height: 25px;
       width: 280px;
@@ -30,12 +35,12 @@
     }
 
     .textcard {
-      display: inline;
       margin: 0 5px;
       width: 40px;
     }
-    #textpass1 {
-      display: inline;
+
+    .sq1,.sq2,#textname {
+      display: block;
     }
   </style>
 </head>
@@ -43,13 +48,15 @@
 <body>
   <form action="javascript:console.log('Your form has been upload');" class="form">
     <h1>About you</h1>
-    <p>Your Name<span class="nes">*</span>:</p>
+    <p>Your Name:<span class="special1">*</span></p>
     <input type="text" autofocus required name="guestname" id="textname" placeholder="Input your name">
-    <select class="sex" name="sex">
+    <select class="gender" name="gender">
+      <option value="Your Gender">Your Gender</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
       <option value="Secret">Secret</option>
     </select>
+    <span class="warngender"></span>
     <p>Your Security Question</p>
     <select class="sq1" name="securityQuestion-1">
       <option value="default">Security Question 1</option>
@@ -65,11 +72,12 @@
     <input type="text" name='sq-2' class="sq2" placeholder="Answer">
     <p>Your Email:</p>
     <input type="email" name="textemail" id="textemail" placeholder="Input your your email">
-    <p>Your Password:</p>
+    <p>Your Password:(Only 6-digit number)<span class="special1">*</span></p>
     <input type="password" name="textpass" id="textpass" placeholder="Input your password">
+    <span class="warnpass"></span>
     <p>Comfirm Password:</p>
     <input type="password" name="textpass1" id="textpass1" placeholder="Comfirm your password">
-    <span class="warn"></span>
+    <span class="warndiff"></span>
     <p>Your Platform:&nbsp;(Hold Ctrl and click)</p>
     <!-- 多选 -->
     <select name="platform" multiple class="platform">
@@ -87,11 +95,11 @@
     <div class="your-card">
       <p>Your Card:</p>
       <input type="text" name="textcard1" class="textcard" maxlength="4" size="1">
-      <span>—</span>
+      <span class="special">—</span>
       <input type="text" name="textcard2" class="textcard" maxlength="4" size="1">
-      <span>—</span>
+      <span class="special">—</span>
       <input type="text" name="textcard3" class="textcard" maxlength="4" size="1">
-      <span>—</span>
+      <span class="special">—</span>
       <input type="text" name="textcard4" class="textcard" maxlength="4" size="1">
     </div>
     <div class="comment">
