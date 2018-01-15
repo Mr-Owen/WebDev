@@ -22,13 +22,10 @@ UnitEvent = {
 //Event focusin and focusout
 
 function getFocus(event) {
-  switch (event.target.style.backgroundColor) {
-    case '':
-      event.target.style.backgroundColor = 'whitesmoke';
-      break;// 此处使用#f3f3f3失效，失焦后无法恢复
-    case 'whitesmoke':
-      event.target.style.backgroundColor = '';
-      break;
+  if(!event.target.style.backgroundColor){
+    event.target.style.backgroundColor = '#f3f3f3';
+  } else if (!!event.target.style.backgroundColor){
+    event.target.style.backgroundColor = '';
   }
 }
 
@@ -66,14 +63,17 @@ function inputNum(event) {
       }
     }
   }
-  if (!/\d/.test(String.fromCharCode(event.keyCode)) && event.keyCode != 13) {
+  if (!/\d/.test(event.key) && event.key != 'Enter' && event.key != 'Backspace') {
     event.preventDefault();
     alert('Only support number');
   }
+  // or
+  // var code = event.keyCode || event.chartCode;
+  // if (!/\d/.test(String.fromCharCode(event.code)) && event.code != 13)
 }
-//此事件代码暂未支持firefox
+//在firefox中keypress事件任意数字和字母的keyCode始终为0!!此时，只有charCode
 // 设置监听keyup事件时无法阻止错误的输出，只能设置keypress或者keydown
-// keypress在chrome中会忽略退格键；keypress的小键盘和字母区数字码一样，keydown和keyup他们的则不同
+// chrome和IE11在keypress事件中会忽略退格键；keypress的小键盘和字母区数字码一样，keydown和keyup他们的则不同
 UnitEvent.addHandler(document.querySelector('.your-card'), 'keypress', inputNum);
 
 // Event select
