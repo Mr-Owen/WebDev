@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style media="screen">
+    a {
+      background: #dc143c;
+      color: #fff;
+      display: block;
+      float: left;
+      margin: 10px 5px;
+      min-width: 20px;
+      text-align: center;
+    }
+    .getbutton {
+      margin: 10px 0;
+    }
+  </style>
+  <script type="text/javascript" defer src="InsertOrDelNum.js"></script>
+</head>
+
+<body>
+  <input type="text" name="text" id="textarea" placeholder="只限数字">
+  <div class="getbutton">
+    <input type="button" value="左侧插入" class='leftin'>
+    <input type="button" value="右侧插入" class='rightin'>
+    <input type="button" value="左侧删除" class='leftout'>
+    <input type="button" value="右侧删除" class='rightout'>
+  </div>
+  <div class="outputarea"></div>
+</body>
+
+</html>
