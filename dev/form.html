@@ -51,7 +51,8 @@
     <p>Your Name:<span class="special1">*</span></p>
     <input type="text" autofocus required name="guestname" id="textname" placeholder="Input your name">
     <select class="gender" name="gender">
-      <option value="Your Gender">Your Gender</option>
+      <!-- 在选项表单控件中实现类似placeholder效果——disabled selected hidden -->
+      <option value="Your Gender" disabled selected hidden>Your Gender</option>
       <option value="Male">Male</option>
       <option value="Female">Female</option>
       <option value="Secret">Secret</option>
@@ -59,13 +60,13 @@
     <span class="warngender"></span>
     <p>Your Security Question</p>
     <select class="sq1" name="securityQuestion-1">
-      <option value="default">Security Question 1</option>
+      <option value="default" disabled selected hidden>Security Question 1</option>
       <option value="petname">What was your name of your first pet ?</option>
       <option value="firstgo">Where did you go the first time you flew on a plane ?</option>
     </select>
     <input type="text" name='sq-1' class="sq1" placeholder="Answer">
     <select class="sq2" name="securityQuestion-2">
-      <option value="default">Security Question 2</option>
+      <option value="default" disabled selected hidden>Security Question 2</option>
       <option value="petname">What was your name of your first pet ?</option>
       <option value="firstgo">Where did you go the first time you flew on a plane ?</option>
     </select>
