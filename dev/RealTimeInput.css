@@ -1,0 +1,33 @@
+body {
+  background: #666;
+}
+
+.search-area {
+  background: url(RealTimeInput.png) 0 -8px #fff;
+  border-radius: 35px;
+  height: 32px;
+  margin: 300px auto;
+  width: 200px;
+}
+
+.outputarea {
+  color: #fff;
+  font-size: 50px;
+  margin: 50px auto;
+  text-align: center;
+  width: 980px;
+}
+
+#search-box {
+  background: transparent;
+  border: 0;
+  margin: 6px 0 0 30px;
+  outline: none;
+  position: relative;
+}
+
+#submit-button {
+  left: 220px;
+  position: absolute;
+  top: 12px;
+}
