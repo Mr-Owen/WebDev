@@ -15,7 +15,7 @@
   width: 18px;
 }
 
-.point, .point1 {
+.point {
   background: #dc143c;
   border-radius: 20px;
   display: inline-block;
@@ -25,13 +25,14 @@
   width: 20px;
 }
 
-.point {
-  top: -170px;
-}
-
-.point1 {
+/* 选取第偶数个point类，从2开始 */
+.point:nth-child(2n+0) {
   left: -25px;
   top: -55px;
+}
+/* 选取第奇数个point类，从1开始 */
+.point:nth-child(2n+1) {
+  top: -170px;
 }
 
 /* 选取所有系列part类中的第i个元素 */

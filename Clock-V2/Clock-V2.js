@@ -45,14 +45,12 @@ let trigger = (event) => {
     setTime(_sec[0], now[5]);
     setTime(_sec[1], now[6]);
     if (now[6] % 2 != 0) {
-      [0,1].forEach((number) => {
+      [0,1,2,3].forEach((number) => {
         document.querySelectorAll('.point')[number].classList.remove('on');
-        document.querySelectorAll('.point1')[number].classList.remove('on');
       });
     }else{
-      [0,1].forEach((number) => {
+      [0,1,2,3].forEach((number) => {
         document.querySelectorAll('.point')[number].classList.add('on');
-        document.querySelectorAll('.point1')[number].classList.add('on');
       });
     }
   }, 1000);
