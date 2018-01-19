@@ -1,0 +1,95 @@
+body {
+  position: relative;
+  height: 100%;
+  min-width: 980px;
+}
+
+.inputarea {
+  margin: 100px auto;
+  text-align: center;
+  width: 980px;
+}
+
+.outputarea {
+  color: #dc143c;
+  margin: 100px auto;
+  font-size: 100px;
+  height: 140px;
+  text-align: center;
+  width: 980px;
+}
+
+.clock {
+  margin-left: -547px;   /* Clock 的一半距离 */
+  position: absolute;
+  top: 70%;
+  left: 50%;
+}
+
+.part {
+  background: #dc143c;
+  border-radius: 18px;
+  height: 110px;
+  opacity: 0.1;
+  position: absolute;
+  width: 18px;
+}
+
+.point {
+  background: #dc143c;
+  border-radius: 20px;
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  top: -117px;
+  width: 20px;
+}
+
+/* 选取所有系列part类中的第i个元素 */
+
+.part:nth-child(1) {
+  left: 65px;
+  transform: rotate(0.25turn);
+}
+
+.part:nth-child(2) {
+  top: 60px;
+  left: 130px;
+}
+
+.part:nth-child(3) {
+  top: 175px;
+  left: 130px;
+}
+
+.part:nth-child(4) {
+  top: 235px;
+  left: 65px;
+  transform: rotate(0.25turn);
+}
+
+.part:nth-child(5) {
+  top: 175px;
+}
+
+.part:nth-child(6) {
+  top: 60px;
+}
+
+.part:nth-child(7) {
+  top: 117px;
+  left: 65px;
+  transform: rotate(0.25turn);
+}
+
+.nth {
+  display: inline-block;
+  margin: 0 10px;
+  position: relative;
+  height: 300px;
+  width: 150px;
+}
+
+.on {
+  opacity: 1;
+}
