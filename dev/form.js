@@ -93,7 +93,7 @@ UnitEvent.addHandler(textarea, 'focusin', Selected);
 // 并不阻挡用户输入过多密码，等到失去焦点时提醒用户字符数超过限定值
 let change = (event) => {
   if (pass.value.length > 6) {
-    alert('Only support 6 number');
+    alert('Only support 6 digit number');
   }
 };
 UnitEvent.addHandler(pass, 'change', change);
