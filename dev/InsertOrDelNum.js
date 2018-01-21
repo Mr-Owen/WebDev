@@ -1,4 +1,4 @@
-/* jslint esversion: 6 */
+/* jshint esversion: 6 */
 let outputarea = document.querySelector('.outputarea');
 let leftin = document.querySelector('.leftin');
 let leftout = document.querySelector('.leftout');

@@ -1,4 +1,4 @@
-/* jslint esversion: 6 */
+/* jshint esversion: 6 */
 let form = document.querySelector('.form');
 let text = document.querySelector('#textname');
 let pass = document.querySelector('#textpass');

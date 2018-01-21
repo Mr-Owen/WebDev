@@ -1,4 +1,4 @@
-/* jslint esversion: 6 */
+/* jshint esversion: 6 */
 let num,
   valueButton = document.querySelector('.valueButton'),
   outputarea = document.querySelector('.outputarea');

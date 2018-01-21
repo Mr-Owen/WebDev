@@ -1,4 +1,4 @@
-/* jslint esversion: 6 */
+/* jshint esversion: 6 */
 let userName = (event) => {
   let setInputName = document.getElementById("search-box").value;
   // real time simulator
