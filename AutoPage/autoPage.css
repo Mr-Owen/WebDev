@@ -1,0 +1,75 @@
+body {
+  padding: 0;
+  width: 980px;
+  margin: 0 auto;
+}
+
+.content {
+  position: relative;
+  top: 200px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.list img {
+  float: left;
+  height: 300px;
+  width: 300px;
+  margin: 0;
+}
+
+.list {
+  position: absolute;
+  width: 1200px;
+  transition: left 1s;
+}
+
+.point {
+  z-index: 1;
+  position: absolute;
+  top: 280px;
+  left: 38%;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.point span {
+  float: left;
+  background: #999;
+  border-radius: 7px;
+  margin: 0 5px;
+  height: 7px;
+  width: 7px;
+}
+
+.point span:hover {
+  cursor: pointer;
+}
+
+.point .on {
+  background: #dc143c;
+}
+
+.arr {
+  z-index: 999;
+  position: absolute;
+  top: 47%;
+  display: inline-block;
+  color: #d3d3d3;
+  height: 40px;
+  width: 40px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 40px;
+  font-size: 40px;
+}
+
+.content:hover .arr, .content:hover .point {
+  background: rgba(200, 200, 200, 0.5);
+  color: #fff;
+}
+
+.next {
+  left: 260px;
+}
