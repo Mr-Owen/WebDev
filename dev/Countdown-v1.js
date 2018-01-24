@@ -32,7 +32,7 @@ let runTime = (event) => {
           outputarea.innerHTML = hou + '小时' + min + '分' + sec + '秒' + '<br />' + 'Mission Completed';
         }
       };
-      countdown(); // end countdown
+      countdown.call(runTime); // end countdown
     } else {
       outputarea.innerHTML = 'Oops!!There is nothing.';
     }

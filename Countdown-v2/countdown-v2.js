@@ -13,8 +13,8 @@ let num = [
 ];
 
 let runTime = (time, number) => {
-  let part = time.querySelectorAll('.part');
-  let current = parseInt(time.getAttribute('data-value'));
+  let part = time.querySelectorAll('.part'),
+    current = parseInt(time.getAttribute('data-value'));
   if (!isNaN(current) && current != number) {
     num[current].forEach(function(arr) {
       part[arr].classList.remove('on');
@@ -29,22 +29,21 @@ let runTime = (time, number) => {
 };
 
 let trigger = function(event) {
-  let hour = document.querySelector('#myHour').value;
-  let min = document.querySelector('#myMin').value;
-  let sec = document.querySelector('#mySec').value;
-  let last = parseInt(3600 * hour) + parseInt(60 * min) + parseInt(sec);
-  if(isNaN(last)){
-    last = Number(3600 * hour)+Number(60*min)+Number(sec);
+  let hour = document.querySelector('#myHour').value,
+    min = document.querySelector('#myMin').value,
+    sec = document.querySelector('#mySec').value,
+    last = parseInt(3600 * hour) + parseInt(60 * min) + parseInt(sec);
+  if (isNaN(last)) {     // 化整数的第二计划
+    last = Number(3600 * hour) + Number(60 * min) + Number(sec);
   }
 
-  let _hour = document.querySelectorAll('.hour');
-  let _min = document.querySelectorAll('.min');
-  let _sec = document.querySelectorAll('.sec');
-  let outputarea = document.querySelector('.outputarea');
+  let _hour = document.querySelectorAll('.hour'),
+    _min = document.querySelectorAll('.min'),
+    _sec = document.querySelectorAll('.sec'),
+    outputarea = document.querySelector('.outputarea');
   if (event.key == 'Enter') {
     outputarea.innerText = '';
-    //此处若是函数表达式则报错未定义
-    (function countdown() {
+    let countdown = (function() {
       if (hour || min || sec) {
         // Math.floor()方法、乘法、除法、取余数运算对空字符串返回0，故不强制填写 hour 和 min
         runTime(_hour[0], Math.floor(hour / 10));
@@ -57,7 +56,7 @@ let trigger = function(event) {
         hour = Math.floor(last / 3600);
         min = Math.floor((last - hour * 3600) / 60);
         sec = last - 3600 * hour - 60 * min;
-        setTimeout(countdown, 1000);
+        setTimeout(arguments.callee, 1000);
         document.body.removeEventListener('keypress', trigger, false); // 屏蔽输入
       } else {
         runTime(_sec[1], sec % 10);
