@@ -1,3 +1,7 @@
+body {
+  background: #111;
+}
+
 .clock {
   margin: auto;
   position: absolute;
@@ -26,11 +30,14 @@
 }
 
 /* 选取第偶数个point类，从2开始 */
+
 .point:nth-child(2n+0) {
   left: -25px;
   top: -55px;
 }
+
 /* 选取第奇数个point类，从1开始 */
+
 .point:nth-child(2n+1) {
   top: -170px;
 }
@@ -80,7 +87,7 @@
   width: 150px;
 }
 
-.sp{
+.sp {
   margin-left: -11px;
 }
 
