@@ -18,8 +18,8 @@
 // 3. 点击底部小圆点翻页
 
 // 易错点：
-// 在单例中要小心使用箭头函数，因为它本身函数体不具有this，它使用的是函数外层作用域的this
-// 或者理解为箭头函数中的this指向定义函数时的作用域
+// 在外部不能通过设置_img_index:img_index取值，因为这样在外部_img_index只会在第一次执行get_animate函数时取值（也是唯一的一次赋值给_img_index），即只会取到1，不会取到变化值
+// 推广：只能通过设置类似_box: box,取得私有变量的固定值，不能取得变化后的私有变量或修改私有变量的值，只有特权方法才有权限修改私有变量和取得变化后的私有变量
 
 // 以下已将特殊值转换为变量，在修改html图片数量、大小时，不用修改js数据
 // 已设置list容器的宽度为1200px，可调节该宽度，保证有list类宽度/img_width == img_len成立，否则多余的图将显示为空白
@@ -36,10 +36,8 @@ let get_animate = (() => {
   return {
     _box: box,
     _list: list,
-    _timer: img_timer,
     _width: img_width,
-    animate: function(num, tg) {
-      // animate函数若使用箭头函数，则该函数内this指向window
+    animate: (num, tg) => {
       let digit = parseInt(list.style.left, 10);
       switch (digit) {
         case 0:
@@ -48,8 +46,8 @@ let get_animate = (() => {
           } else {
             list.style.left = digit + num + "px";
           }
-          // 取left计算后的值，所以不能取digit,加1是为了防止负0出现
-          get_animate.img_index = -parseInt(list.style.left, 10) / img_width + 1;
+          // 取left计算后的值，所以不能取digit,+1防止负0出现
+          img_index = -parseInt(list.style.left, 10) / img_width + 1;
           break;
 
         case max_left:
@@ -58,13 +56,14 @@ let get_animate = (() => {
           } else {
             list.style.left = 0 + "px";
           }
-          get_animate.img_index = -parseInt(list.style.left, 10) / img_width + 1;
+          img_index = -parseInt(list.style.left, 10) / img_width + 1;
           break;
 
         default:
           list.style.left = digit + num + "px";
-          get_animate.img_index = -parseInt(list.style.left, 10) / img_width + 1;
+          img_index = -parseInt(list.style.left, 10) / img_width + 1;
       }
+      return img_index; // 只能通过函数返回值取得修改后的img_index
     },
 
     point: (item) => {
@@ -72,26 +71,32 @@ let get_animate = (() => {
         span[i].classList.remove("on");
       }
       span[item - 1].classList.add("on");
+    },
+
+    timer: (number) => {
+      clearInterval(img_timer);
+      img_timer = number;
     }
   };
 })();
 
 window.addEventListener("load", function(event) {
-  get_animate._timer = setInterval(function() {
-    get_animate.animate(-get_animate._width);
-    get_animate.point(get_animate.img_index);
+  let clock = setInterval(function() {
+    let index = get_animate.animate(-get_animate._width);
+    get_animate.point(index);
   }, 3000);
+  get_animate.timer(clock);
 }, false);
 
 get_animate._box.addEventListener("click", function(event) {
   let target = event.target.classList[0];
   if (target == "prev") {
-    get_animate.animate(get_animate._width, target);
-    get_animate.point(get_animate.img_index);
+    let index = get_animate.animate(get_animate._width, target);
+    get_animate.point(index);
   }
   if (target == "next") {
-    get_animate.animate(-get_animate._width, target);
-    get_animate.point(get_animate.img_index);
+    let index = get_animate.animate(-get_animate._width, target);
+    get_animate.point(index);
   }
   // click points
   if (event.target.tagName == "SPAN") {
@@ -103,11 +108,12 @@ get_animate._box.addEventListener("click", function(event) {
 
 // Event mouse
 get_animate._box.addEventListener("mouseover", (event) => {
-  clearInterval(get_animate._timer);
+  get_animate.timer();
 }, false);
 get_animate._box.addEventListener("mouseout", (event) => {
-  get_animate._timer = setInterval(function() {
-    get_animate.animate(-get_animate._width);
-    get_animate.point(get_animate.img_index);
+  let clock = setInterval(function() {
+    let index = get_animate.animate(-get_animate._width);
+    get_animate.point(index);
   }, 3000);
+  get_animate.timer(clock);
 }, false);
