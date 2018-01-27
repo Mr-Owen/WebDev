@@ -20,7 +20,8 @@ body {
 }
 
 .clock {
-  margin-left: -547px;   /* Clock 的一半距离 */
+  margin-left: -547px;
+  /* Clock 的一半距离 */
   position: absolute;
   top: 70%;
   left: 50%;
