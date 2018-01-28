@@ -1,6 +1,5 @@
 body {
-  margin: 0;
-  padding: 0;
+  background: #fafafa;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
 }
 
@@ -10,7 +9,9 @@ body {
 }
 
 .c_head {
-  line-height: 40px;
+  line-height: 70px;
+  background: #24292e;
+  color: #fff;
 }
 
 .c_footer {
@@ -20,6 +21,7 @@ body {
 }
 
 .net_ico span {
+  font-size: 30px;
   padding: 30px;
 }
 
@@ -29,7 +31,7 @@ body {
 }
 
 .list {
-  float: left;
+  position: fixed;
   width: 240px;
 }
 
@@ -37,12 +39,22 @@ body {
   padding: 10px 0;
 }
 
-.list li a {
+.list li .li_item {
   padding-left: 20px;
 }
 
 .list li:hover {
-  background: #f2f2f2;
+  background: #a9a9a9;
+  color: #fff;
+  cursor: pointer;
+}
+
+.list li:hover a {
+  color: #fff;
+}
+
+.list li a:hover {
+  text-decoration: none;
 }
 
 .list .color_point {
@@ -55,6 +67,7 @@ body {
 }
 
 .todo_area {
+  background: #fff;
   margin-left: 240px;
   min-height: 500px;
 }
@@ -66,13 +79,21 @@ body {
 
 .today_date {
   padding-left: 10px;
-  color: #d3d3d3;
   font-size: 14px;
   font-weight: normal;
 }
 
 .todo_view {
   text-align: center;
+}
+
+#iadd_m {
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  transition: width 0.5s;
+  font-size: 16px;
 }
 
 .tvm {
@@ -85,7 +106,16 @@ body {
   font-size: 20px;
 }
 
-.todo_view img {
+.output_area img {
   margin: 0 auto;
   height: 300px;
+}
+
+.output_area .input_result {
+  margin: 20px 100px;
+  padding: 0 20px;
+  border-radius: 5px;
+  border: 1px solid #d3d3d3;
+  text-align: left;
+  line-height: 40px;
 }
