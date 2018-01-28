@@ -1,0 +1,91 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
+.c_box {
+  margin: 0 auto;
+  width: 980px;
+}
+
+.c_head {
+  line-height: 40px;
+}
+
+.c_footer {
+  margin: 50px auto;
+  min-width: 980px;
+  text-align: center;
+}
+
+.net_ico span {
+  padding: 30px;
+}
+
+.c_content {
+  clear: both;
+  min-width: 980px;
+}
+
+.list {
+  float: left;
+  width: 240px;
+}
+
+.list li {
+  padding: 10px 0;
+}
+
+.list li a {
+  padding-left: 20px;
+}
+
+.list li:hover {
+  background: #f2f2f2;
+}
+
+.list .color_point {
+  margin-left: 20px;
+  background: #dc143c;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+}
+
+.todo_area {
+  margin-left: 240px;
+  min-height: 500px;
+}
+
+.todo_head {
+  line-height: 50px;
+  padding-left: 20px;
+}
+
+.today_date {
+  padding-left: 10px;
+  color: #d3d3d3;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.todo_view {
+  text-align: center;
+}
+
+.tvm {
+  display: inline-block;
+  margin: 15px 0;
+}
+
+.add_mission::before {
+  content: "\2b";
+  font-size: 20px;
+}
+
+.todo_view img {
+  margin: 0 auto;
+  height: 300px;
+}
