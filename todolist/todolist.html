@@ -19,6 +19,7 @@
     </div>
     <!-- head end -->
     <div class="c_content">
+
       <ul class="list">
         <li><span class="color_point"></span><span class="li_item">个人</span></li>
         <li><span class="color_point"></span><span class="li_item">购物</span></li>
@@ -26,9 +27,16 @@
         <li><span class="color_point"></span><span class="li_item">娱乐</span></li>
         <li><span class="color_point"></span><span class="li_item">出行</span></li>
         <li class='create_item'>
-          <span class="color_point"></span><span class="create_item li_item">添加类别</span>
+          <span class="create_item li_item button">添加新类型</span>
+        </li>
+        <li class="input_item" style="visibility: hidden; width: 0;">
+          <form action="javascript:;">
+            <span class="color_point"></span>
+            <input type="text" name="ncreate_item" id="icreate_item" placeholder="回车输入">
+          </form>
         </li>
       </ul>
+
       <div class="todo_area">
         <h2 class="todo_head">
           <a href="javascript:;">今天</a>
@@ -36,23 +44,26 @@
         </h2>
         <div class="todo_view">
           <form action="javascript:;">
-            <span class="add_mission tvm"><a href="javascript:;" class="add_mission_button">添加任务</a></span>
+            <span class="add_mission tvm"><a href="javascript:;"
+              class="add_mission_button button">添加任务</a></span>
             <input type="text" name="nadd_m" id="iadd_m" maxlength="80" placeholder="回车确认" style="visibility: hidden; width: 0;">
             <div class="output_area"><img src="img/yeah.png" alt="img"></div>
           </form>
           <p class='tvm'>祝您拥有愉快的一天！</p>
         </div>
       </div>
+
     </div>
     <!-- content end -->
+    <div class="c_footer">
+      <span>作者：</span>
+      <a href="https://github.com/lbwa" target="_blank">lbwa</a>
+      <span>源代码：</span>
+      <a href="https://github.com/lbwa/WebDev/tree/master/todolist" target="_blank">github</a>
+    </div>
+    <!-- footer end -->
   </div>
-  <div class="c_footer">
-    <span>作者：</span>
-    <a href="https://github.com/lbwa" target="_blank">lbwa</a>
-    <span>源代码：</span>
-    <a href="https://github.com/lbwa" target="_blank">github</a>
-  </div>
-  <!-- footer end -->
+
   <script src="todolist.js" charset="utf-8"></script>
 </body>
 

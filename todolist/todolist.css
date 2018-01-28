@@ -44,9 +44,21 @@ body {
 }
 
 .list li:hover {
-  background: #a9a9a9;
+  background: #d3d3d3;
   color: #fff;
   cursor: pointer;
+}
+
+.list li.create_item span {
+  margin-left: 60px;
+}
+
+.list li.create_item:hover {
+  background: #fafafa;
+}
+
+.list li.create_item span {
+  padding: 0;
 }
 
 .list li:hover a {
@@ -66,10 +78,21 @@ body {
   border-radius: 10px;
 }
 
+#icreate_item {
+  margin-left: 20px;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  font-size: 14px;
+  width: 150px;
+}
+
 .todo_area {
   background: #fff;
   margin-left: 240px;
   min-height: 500px;
+  border: 1px solid #d3d3d3;
 }
 
 .todo_head {
@@ -101,9 +124,18 @@ body {
   margin: 15px 0;
 }
 
-.add_mission::before {
-  content: "\2b";
-  font-size: 20px;
+.button {
+  display: inline-block;
+  background: #24292e;
+  color: #fff;
+  line-height: 30px;
+  border-radius: 10px;
+  width: 100px;
+  text-align: center;
+}
+
+.add_mission_button:hover {
+  text-decoration: none;
 }
 
 .output_area img {
