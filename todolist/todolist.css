@@ -42,31 +42,24 @@ html, body {
   padding: 10px 0;
 }
 
-.list li .li_item {
+.list li span.li_item {
   padding-left: 20px;
 }
 
 .list li:hover {
-  background: #d3d3d3;
-  color: #fff;
   cursor: pointer;
-}
-
-.list li:hover a {
-  color: #fff;
 }
 
 .list li a:hover {
   text-decoration: none;
 }
-
-.list li.create_item span {
+/* 类型按钮 */
+.list li.create_item a {
   margin-left: 60px;
   padding: 0;
 }
 
-.list li.create_item:hover,
-.list li.input_item:hover {
+.list li.create_item:hover, .list li.input_item:hover {
   background: #fafafa;
 }
 
@@ -87,6 +80,17 @@ html, body {
   outline: none;
   font-size: 14px;
   width: 150px;
+}
+
+.list .delete_link {
+  /* display: none; */
+  float: right;
+  padding-right: 20px;
+}
+
+.delete_link:hover {
+  color: #dc143c;
+  font-weight: bold;
 }
 
 .todo_area {
@@ -115,7 +119,6 @@ html, body {
   border-radius: 5px;
   height: 30px;
   outline: none;
-  transition: width 0.5s;
   font-size: 16px;
 }
 
@@ -132,6 +135,10 @@ html, body {
   border-radius: 10px;
   width: 100px;
   text-align: center;
+}
+
+.button:hover {
+  font-weight: bold;
 }
 
 .add_mission_button:hover {
