@@ -65,7 +65,8 @@ html, body {
   padding: 0;
 }
 
-.list li.create_item:hover {
+.list li.create_item:hover,
+.list li.input_item:hover {
   background: #fafafa;
 }
 

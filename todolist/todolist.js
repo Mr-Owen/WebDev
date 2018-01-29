@@ -1,16 +1,18 @@
 // jshint esversion: 6
+//$(document).ready(() => {
 let app = {};
 
 app.parts = {
-  _todo_area: document.querySelector('.todo_area'),
-  _list: document.querySelector('.list'),
-  _form: document.querySelectorAll('form'),
-  _date: document.querySelector('.today_date'),
-  _add_m_button: document.querySelector('.add_mission_button'),
-  _add_m: document.querySelector('#iadd_m'),
-  _out_area: document.querySelector('.output_area'),
-  _input_item: document.querySelector('.input_item'),
-  _add_item:document.querySelector('#icreate_item')
+  _todo_area: $('.todo_area'),
+  _list: $('.list'),
+  _form: $('form'),
+  _date: $('.today_date'),
+  _add_m_button: $('.add_mission_button'),
+  _add_m: $('#iadd_m'),
+  _out_area: $('.output_area'),
+  _input_item: $('.input_item'),
+  _add_item: $('#icreate_item'),
+  _li_create_item: $('li.create_item')
 };
 
 app.fn = {
@@ -21,101 +23,102 @@ app.fn = {
       date = localDate.getDate(),
       day = localDate.getDay(),
       now = /\d\d:\d\d:\d\d/.exec(localDate);
-      cnDay = ['日', '一', '二', '三', '四', '五', '六'];
+    cnDay = ['日', '一', '二', '三', '四', '五', '六'];
     day = cnDay[day];
     let output = year + "年" + month + "月" + date + "日" + " 星期" + day;
     let clock =
-    app.parts._date.innerText = output;
+      app.parts._date.innerText = output;
     return now[0];
   })(),
 
   _create_ele: function() {
     if (event.target.firstElementChild.classList[0] === 'color_point') {
-      let cEle_li = document.createElement('li'),
-        cEle_span = document.createElement('span'),
-        cEle_spans = document.createElement('span'),
-        cText_Node = document.createTextNode(app.parts._add_item.value);
-      cEle_span.className = 'color_point';
-      cEle_spans.className = 'li_item';
-      cEle_spans.appendChild(cText_Node);
-      cEle_li.appendChild(cEle_span);
-      cEle_li.appendChild(cEle_spans);
-      let insertedNode = app.parts._list.lastElementChild.previousElementSibling;
-      app.parts._list.insertBefore(cEle_li, insertedNode);
+      let cEle_li = $('<li>'),
+        cEle_span = $("<span class='color_point'>"),
+        cEle_spans = $("<span class='li_item'>");
+      cEle_spans.text(app.parts._add_item.val());
+      cEle_li.append(cEle_span);
+      cEle_li.append(cEle_spans);
+      let insertedNode = app.parts._list.last().prev();
+      console.log(cEle_li);
+      app.parts._li_create_item.before(cEle_li);
     }
 
     if (event.target.firstElementChild.classList[0] === 'add_mission') {
-      let iEle_div = document.createElement('div'),
-        iEle_p = document.createElement('p'),
-        iText_Node = document.createTextNode(app.parts._add_m.value);
-      iEle_div.className = 'input_result';
-      iEle_p.appendChild(iText_Node);
-      iEle_div.appendChild(iEle_p);
-      app.parts._out_area.insertBefore(iEle_div, app.parts._out_area.firstChild);
+      let iEle_div = $("<div class='input_result'>"),
+        iEle_p = $('<p>');
+      iEle_p.text(app.parts._add_m.val());
+      iEle_div.append(iEle_p);
+      console.log(iEle_div[0]);
+      app.parts._out_area.children(':first').before(iEle_div);
+      // 没有值
       // 只删除图像
-      if (app.parts._out_area.lastChild.tagName === 'IMG') {
-        app.parts._out_area.removeChild(app.parts._out_area.lastChild);
-      }
+      // if (app.parts._out_area.children(':last')[0].tagName === 'IMG') {
+      //   app.parts._out_area.empty();
+      // }
     }
   },
 
   _show_input: function(obj) {
     if (event.type === 'click') {
-      obj.style.visibility = 'visible';
-      if (event.target === app.parts._add_m_button) {
-        obj.style.width = 300 + 'px';   // mission area
+      obj.css('visibility', 'visible');
+      if (event.target.classList[0] === 'add_mission_button') {
+        obj.css('width', 300 + 'px'); // mission area
         obj.focus();
       }
       if (event.target.classList[0] === 'create_item') {
-        obj.style.width = 240 + 'px';    // item area
-        document.querySelector('#icreate_item').focus();
+        obj.css('width', 240 + 'px'); // item area
+        $('#icreate_item').focus();
       }
     }
   },
 
   _hidden: function(obj) {
-    obj.style.visibility = 'hidden';
-    obj.style.width = 0;
+    obj.css('visibility', 'hidden');
+    obj.css('width', 0);
   },
 
-  _test_value:function(obj) {
-    if (obj.value != '') {
+  _test_value: function(obj) {
+    if (obj.val() != '') {
       app.fn._create_ele();
-      app.parts._form.forEach((form)=>form.reset());  // reset mission form
+      for (let i = 0, len = $('form').length; i < len; i++) {
+        $('form')[i].reset(); // reset mission form
+      }
     } else {
       obj.blur(); // 空输入主动失去焦点
     }
   }
 };
 
-app.parts._list.addEventListener('click', (event) => {
+app.parts._list.click((event) => {
   if (event.target.classList[0] === 'create_item') {
     app.fn._show_input(app.parts._input_item);
   }
-}, false);
+});
 
-app.parts._list.addEventListener('submit', (event) => {
+app.parts._list.submit((event) => {
   app.fn._test_value(app.parts._add_item);
-},false);
+});
 
-app.parts._list.addEventListener('focusout', (event) => {
+app.parts._list.focusout((event) => {
   if (event.target.id === 'icreate_item') {
     app.fn._hidden(app.parts._input_item);
   }
-}, false);
+});
 
-app.parts._todo_area.addEventListener('click', (event) => {
+app.parts._todo_area.click((event) => {
   if (event.target.classList[0] === 'add_mission_button') {
     app.fn._show_input(app.parts._add_m);
   }
-}, false);
+});
 
-app.parts._todo_area.addEventListener('focusout', (event) => {
+app.parts._todo_area.focusout((event) => {
   if (event.target.id === 'iadd_m') {
     app.fn._hidden(app.parts._add_m);
   }
-}, false);
+});
 
-app.parts._todo_area.addEventListener('submit', (event) => {
+app.parts._todo_area.submit((event) => {
   app.fn._test_value(app.parts._add_m);
-}, false);
+});
+//});
