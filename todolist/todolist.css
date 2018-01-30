@@ -1,7 +1,6 @@
 html, body {
   background: #fafafa;
   height: 100%;
-  overflow: hidden;
 }
 
 .c_box {
@@ -30,7 +29,7 @@ html, body {
 .c_content {
   min-width: 980px;
   border: 1px solid #d3d3d3;
-  height: 100%;
+  min-height: 100%;
 }
 
 .list {
@@ -48,10 +47,6 @@ html, body {
 
 .list li:hover {
   cursor: pointer;
-}
-
-.list li a:hover {
-  text-decoration: none;
 }
 /* 类型按钮 */
 .list li.create_item a {
@@ -82,21 +77,28 @@ html, body {
   width: 150px;
 }
 
-.list .delete_link {
-  /* display: none; */
+.delete_link {
+  display: none;
+  color: #696969;
   float: right;
+}
+.list .delete_link {
   padding-right: 20px;
 }
 
 .delete_link:hover {
   color: #dc143c;
-  font-weight: bold;
+  text-decoration: none;
+}
+
+.on {
+  display: inline-block;
 }
 
 .todo_area {
   background: #fff;
   margin-left: 240px;
-  height: 100%;
+  min-height: 100%;
 }
 
 .todo_head {
@@ -139,9 +141,6 @@ html, body {
 
 .button:hover {
   font-weight: bold;
-}
-
-.add_mission_button:hover {
   text-decoration: none;
 }
 
@@ -157,4 +156,8 @@ html, body {
   border: 1px solid #d3d3d3;
   text-align: left;
   line-height: 40px;
+}
+
+.output_area .input_result p {
+  display: inline-block;
 }
