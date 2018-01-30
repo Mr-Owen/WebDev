@@ -28,7 +28,7 @@ $(document).ready(() => {
       cnDay = ['日', '一', '二', '三', '四', '五', '六'];
       day = cnDay[day];
       let output = year + "年" + month + "月" + date + "日" + " 星期" + day;
-        app.parts.date.append(output);
+      app.parts.date.append(output);
       return now[0];
     })(),
 
@@ -45,47 +45,50 @@ $(document).ready(() => {
         app.parts.input_item.before(cEle_li);
         // 更新 list_li
         app.parts.list_li = $('.list li');
-        let obj = app.parts.list_li[app.parts.list_li.length - 3];
+        let obj = $(app.parts.list_li[app.parts.list_li.length - 3]);
         app.fn.addHandler(obj, function(event) {
-          app.fn.hover.call(app.parts.list_li, event,this.children[2]);
-        }, 2); // 排除一个按钮一个隐藏输入框
+          app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
+        });
       }
 
       if (event.target.children[1].classList[0] === 'add_mission') {
         let iEle_div = $("<div class='input_result'>"),
-          iEle_p = $('<p>');
-        iEle_a = $("<a href='javascript:;' class='delete_link'>...</a>");
+          iEle_p = $('<p>'),
+          iEle_time = $("<span class='current_time'></span>"),
+          iEle_a = $("<a href='javascript:;' class='delete_link'>...</a>");
         iEle_p.text(app.parts.add_m.val());
+        iEle_time.text(app.fn.getDate);
         iEle_div.append(iEle_p);
+        iEle_div.append(iEle_time);
         iEle_div.append(iEle_a);
         app.parts.output_area.prepend(iEle_div);
         app.fn.testImg();
         app.parts.input_result = $('.input_result');
-
-        app.fn.addHandler(app.parts.input_result.first()[0], function(event) {
-          app.fn.hover.call(app.parts.input_result, event, this.children[1]);
+        app.fn.addHandler(app.parts.input_result.first(), function(event) {
+          // $(DOM) 产生DOM元素的jQuery对象
+          app.fn.hover.call(app.parts.input_result, event, $(this).find('.delete_link'));
         });
 
       }
     },
 
-    // obj 要添加事件的元素(非jQuery)
+    // obj 要添加事件的元素(限jQuery)
     // fn 监听程序
     addHandler: function(obj, fn) {
-      obj.addEventListener('mouseenter', fn, false);
-      obj.addEventListener('mouseleave', fn, false);
+      obj.on('mouseenter', fn);
+      obj.on('mouseleave', fn);
     },
 
     hover: function(event, obj) {
       switch (event.type) {
         case 'mouseenter':
           if (obj) {
-            obj.classList.add('on');
+            obj.addClass('on');
           }
           break;
         case 'mouseleave':
           if (obj) {
-            obj.classList.remove('on');
+            obj.removeClass('on');
           }
           break;
       }
@@ -151,12 +154,12 @@ $(document).ready(() => {
   });
 
   //  新建元素li在创建时添加监听程序【line 49】
-  app.parts.list_li.mouseenter(function(event) {
-    app.fn.hover.call(app.parts.list_li, event, this.children[2]);
+  app.parts.list_li.not('.input_item,.create_item').mouseenter(function(event) {
+    app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
   });
 
-  app.parts.list_li.mouseleave(function(event) {
-    app.fn.hover.call(app.parts.list_li, event,this.children[2]);
+  app.parts.list_li.not('.input_item,.create_item').mouseleave(function(event) {
+    app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
   });
 
   app.parts.list.submit((event) => {

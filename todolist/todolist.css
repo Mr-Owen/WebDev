@@ -48,7 +48,9 @@ html, body {
 .list li:hover {
   cursor: pointer;
 }
+
 /* 类型按钮 */
+
 .list li.create_item a {
   margin-left: 60px;
   padding: 0;
@@ -82,6 +84,7 @@ html, body {
   color: #696969;
   float: right;
 }
+
 .list .delete_link {
   padding-right: 20px;
 }
@@ -150,6 +153,7 @@ html, body {
 }
 
 .output_area .input_result {
+  position: relative;
   margin: 20px 100px;
   padding: 0 20px;
   border-radius: 5px;
@@ -160,4 +164,11 @@ html, body {
 
 .output_area .input_result p {
   display: inline-block;
+}
+
+.current_time {
+  position: absolute;
+  right: 40px;
+  color: #d3d3d3;
+  font-size: 14px;
 }
