@@ -36,7 +36,7 @@ html, body {
   border: 1px solid #d3d3d3;
   overflow: hidden;
   min-height: 90%;
-  background: url(/img/bg.png) -1px 0 repeat-y;
+  background: url(img/bg.png) -1px 0 repeat-y;
 }
 
 .list {
@@ -55,11 +55,16 @@ html, body {
 
 .list li:hover {
   cursor: pointer;
+  background: #f5f5f5;
+}
+
+.list .input_item:hover,.list .li_create:hover {
+  background: #fff;
 }
 
 /* 类型按钮 */
 
-.list li.create_item a {
+.list li.li_create a {
   margin-left: 60px;
   padding: 0;
 }
@@ -83,23 +88,60 @@ html, body {
   width: 150px;
 }
 
-.delete_link {
-  display: none;
-  color: #696969;
-  float: right;
-}
 
-.list .delete_link {
+.list .menu_link {
   padding-right: 20px;
 }
 
-.delete_link:hover {
+.menu_ul {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #d3d3d3;
+  background: #fff;
+  border-radius: 5px;
+  width: 100px;
+  height: 60px;
+  box-shadow: 0 0 10px #d3d3d3;
+}
+
+.menu_li {
+  text-align: center;
+  line-height: 30px;
+  width: 100%;
+}
+
+.menu_li:hover {
+  background: #d3d3d3;
+}
+
+.delete_link, .edit_link {
+  color: #696969;
+  float: none;
+  display: inline-block;
+  width: 100%;
+}
+
+.delete_link:hover, .edit_link:hover {
   color: #dc143c;
+  text-decoration: none;
+}
+
+.menu_link {
+  float: right;
+  color: #d3d3d3;
+}
+
+.menu_link:hover {
+  color: #000;
+  font-weight: bold;
   text-decoration: none;
 }
 
 .on {
   display: inline-block;
+  color: #000;
+  font-weight: bold;
 }
 
 .todo_area {
@@ -185,4 +227,14 @@ html, body {
 
 .author {
   color: #a9a9a9;
+}
+
+.backtotop {
+  position: fixed;
+  bottom: 5%;
+  right: 25%;
+  border: 1px solid #d3d3d3;
+  border-radius: 5px;
+  line-height: 50px;
+  width: 50px;
 }

@@ -4,6 +4,7 @@ $(document).ready(() => {
 
   app.parts = {
     KEEP_IMG: {},
+    KEEP_TARGET: {},
     todo_area: $('.todo_area'),
     list: $('.list'),
     date: $('.today_date'),
@@ -14,7 +15,10 @@ $(document).ready(() => {
     input_result: $('.input_result'),
     add_item: $('#icreate_item'),
     list_li: $('.list li'),
+    menu_ul: $('.menu_ul'),
+    menu_link: $('menu_link'),
     delete_link: $('.delete_link'),
+    back_button: $('.backtotop')
   };
 
   app.fn = {
@@ -37,7 +41,7 @@ $(document).ready(() => {
         let cEle_li = $('<li>'),
           cEle_span = $("<span class='color_point'>"),
           cEle_spans = $("<span class='li_item'>"),
-          cEle_a = $("<a href='javascript:;' class='delete_link'>...</a>");
+          cEle_a = $("<a href='javascript:;' class='menu_link'>...</a>");
         cEle_spans.text(app.parts.add_item.val());
         cEle_li.append(cEle_span);
         cEle_li.append(cEle_spans);
@@ -47,7 +51,7 @@ $(document).ready(() => {
         app.parts.list_li = $('.list li');
         let obj = $(app.parts.list_li[app.parts.list_li.length - 3]);
         app.fn.addHandler(obj, function(event) {
-          app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
+          app.fn.hover.call(app.parts.list_li, event, $(this).find('.menu_link'));
         });
       }
 
@@ -55,7 +59,7 @@ $(document).ready(() => {
         let iEle_div = $("<div class='input_result'>"),
           iEle_p = $('<span>'),
           iEle_time = $("<span class='current_time'></span>"),
-          iEle_a = $("<a href='javascript:;' class='delete_link'>...</a>");
+          iEle_a = $("<a href='javascript:;' class='menu_link'>...</a>");
         iEle_p.text(app.parts.add_m.val());
         iEle_time.text(app.fn.getDate);
         iEle_div.append(iEle_p);
@@ -66,7 +70,7 @@ $(document).ready(() => {
         app.parts.input_result = $('.input_result');
         app.fn.addHandler(app.parts.input_result.first(), function(event) {
           // $(DOM) 产生DOM元素的jQuery对象
-          app.fn.hover.call(app.parts.input_result, event, $(this).find('.delete_link'));
+          app.fn.hover.call(app.parts.input_result, event, $(this).find('.menu_link'));
         });
 
       }
@@ -94,27 +98,30 @@ $(document).ready(() => {
       }
     },
 
-    showInput: function(obj, event) {
-      if (event.type === 'click') {
-        obj.toggle(200);
-        if (event.target.classList[0] === 'add_mission_button') {
-          obj.focus();
-        }
-        if (event.target.classList[0] === 'create_item') {
-          $('#icreate_item').focus();
-        }
-      }
+    hoverMenu: function(event) {
+      app.parts.menu_ul.toggle();
+      app.parts.menu_ul.css('left', event.clientX);
+      app.parts.menu_ul.css('top', event.clientY);
+      app.parts.KEEP_TARGET = $(event.target.parentNode)[0];
     },
 
-    hidden: function(obj) {
-      obj.hide(200);
+    showInput: function(obj, event) {
+      // if (event.type === 'click') {
+      obj.toggle(200);
+      if (event.target.classList[0] === 'add_mission_button') {
+        obj.focus();
+      }
+      if (event.target.classList[0] === 'create_item') {
+        $('#icreate_item').focus();
+      }
+      // }
     },
 
     testValue: function(obj, event) {
       if (obj.val() != '') {
         app.fn.createEle(event);
         for (let i = 0, len = $('form').length; i < len; i++) {
-          $('form')[i].reset(); // reset mission form
+          $('form')[i].reset(); // reset form
         }
       } else {
         obj.blur();
@@ -133,9 +140,33 @@ $(document).ready(() => {
       }
     },
 
-  };
+    backToTop: (event) => {
+      switch (document.documentElement.scrollTop) {
+        case 0:
+          $('.backtotop').hide();
+          break;
+        default:
+          $('.backtotop').show();
 
-  app.parts.list.click(function(event) {
+      }
+    },
+
+  };
+  // ===================== event listener ==========================
+  app.fn.getDate();
+
+  app.parts.menu_ul.on('click', function(event) {
+    if (event.target.classList[0] === 'delete_link') {
+      // KEEP_TARGET保存的是指向点击元素的父元素的指针
+      app.parts.KEEP_TARGET.outerHTML = '';
+    }
+    // 当删除的是mission时执行以下检测
+    if ($(app.parts.KEEP_TARGET).attr('class') === 'input_result') {
+      app.fn.testImg();
+    }
+  });
+
+  app.parts.list.on('click', function(event) {
     switch (event.target.classList[0]) {
       case 'create_item':
         // if 用于防止过多点击按钮导致输入框弹跳
@@ -143,55 +174,67 @@ $(document).ready(() => {
           app.fn.showInput(app.parts.input_item, event);
         }
         break;
-      case 'delete_link':
-        // remove item
-        event.target.parentNode.outerHTML = '';
+      case 'menu_link':
+        app.fn.hoverMenu(event);
         break;
     }
   });
-  app.fn.getDate();
 
   //  新建元素li在创建时添加监听程序【line 49】
-  app.parts.list_li.not('.input_item,.create_item').mouseenter(function(event) {
-    app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
+  app.parts.list_li.not('.input_item,.create_item').on('mouseenter', function(event) {
+    app.fn.hover.call(app.parts.list_li, event, $(this).find('.menu_link'));
   });
 
-  app.parts.list_li.not('.input_item,.create_item').mouseleave(function(event) {
-    app.fn.hover.call(app.parts.list_li, event, $(this).find('.delete_link'));
+  app.parts.list_li.not('.input_item,.create_item').on('mouseleave', function(event) {
+    app.fn.hover.call(app.parts.list_li, event, $(this).find('.menu_link'));
   });
 
-  app.parts.list.submit((event) => {
+  app.parts.list.on('submit', (event) => {
     app.fn.testValue(app.parts.add_item, event);
   });
 
-  app.parts.list.focusout((event) => {
-    if (event.target.id === 'icreate_item') {
-      app.fn.hidden(app.parts.input_item);
+  app.parts.list.on('focusout', (event) => {
+    if ($(event.target).attr('id') === 'icreate_item') {
+      app.parts.input_item.hide(200);
+      return;
+    }
+    if ($(event.target).attr('class') === 'menu_link') {
+      // 失去焦点事件先于点击事件，所以设置延迟
+      app.parts.menu_ul.hide(200);
+      return;
     }
   });
 
-  app.parts.todo_area.click((event) => {
+  app.parts.todo_area.on('click', (event) => {
     switch (event.target.classList[0]) {
       case 'add_mission_button':
         if (app.parts.add_m.css('display') === 'none') {
           app.fn.showInput(app.parts.add_m, event);
         }
         break;
-      case 'delete_link':
-        event.target.parentNode.outerHTML = '';
-        app.fn.testImg(event);
+      case 'menu_link':
+        app.fn.hoverMenu(event);
         break;
     }
   });
 
-  app.parts.todo_area.focusout((event) => {
-    if (event.target.id === 'iadd_m') {
-      app.fn.hidden(app.parts.add_m);
+  app.parts.todo_area.on('focusout', (event) => {
+    if ($(event.target).attr('id') === 'iadd_m') {
+      app.parts.add_m.hide(200);
+      return;
+    }
+    if ($(event.target).attr('class') === 'menu_link') {
+      app.parts.menu_ul.hide(200);
+      return;
     }
   });
 
-  app.parts.todo_area.submit((event) => {
+  app.parts.todo_area.on('submit', (event) => {
     app.fn.testValue(app.parts.add_m, event);
+  });
+
+  $(window).on('scroll', (event) => {
+    app.fn.backToTop(event);
   });
 
 });
