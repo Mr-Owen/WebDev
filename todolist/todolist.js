@@ -18,7 +18,7 @@ $(document).ready(() => {
   };
 
   app.fn = {
-    getDate: (function() {
+    getDate: function() {
       let localDate = new Date(),
         year = localDate.getFullYear(),
         month = localDate.getMonth() + 1,
@@ -28,9 +28,9 @@ $(document).ready(() => {
       cnDay = ['日', '一', '二', '三', '四', '五', '六'];
       day = cnDay[day];
       let output = year + "年" + month + "月" + date + "日" + " 星期" + day;
-      app.parts.date.append(output);
+      app.parts.date.text(output);
       return now[0];
-    })(),
+    },
 
     createEle: function(event) {
       if (event.target.firstElementChild.classList[0] === 'color_point') {
@@ -53,7 +53,7 @@ $(document).ready(() => {
 
       if (event.target.children[1].classList[0] === 'add_mission') {
         let iEle_div = $("<div class='input_result'>"),
-          iEle_p = $('<p>'),
+          iEle_p = $('<span>'),
           iEle_time = $("<span class='current_time'></span>"),
           iEle_a = $("<a href='javascript:;' class='delete_link'>...</a>");
         iEle_p.text(app.parts.add_m.val());
@@ -122,17 +122,14 @@ $(document).ready(() => {
     },
 
     testImg: function(event) {
-      let tag_name = app.parts.output_area.children(':last')[0];
-      if (tag_name) {
-        tag_name = tag_name.tagName;
-      }
+      let tag_name = app.parts.output_area.find('.keep_img')[0];
       if (!app.parts.output_area.children().length) {
         app.parts.output_area.append(app.parts.KEEP_IMG);
         app.parts.KEEP_IMG = null;
-      } else if (tag_name === 'IMG') {
+      } else if (tag_name) {
         // 将要删除的图片保存起来
-        app.parts.KEEP_IMG = app.parts.output_area.children('img');
-        app.parts.output_area.children('img').remove();
+        app.parts.KEEP_IMG = app.parts.output_area.children('.keep_img');
+        app.parts.output_area.find('.keep_img').remove();
       }
     },
 
@@ -152,6 +149,7 @@ $(document).ready(() => {
         break;
     }
   });
+  app.fn.getDate();
 
   //  新建元素li在创建时添加监听程序【line 49】
   app.parts.list_li.not('.input_item,.create_item').mouseenter(function(event) {
