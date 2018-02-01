@@ -45,7 +45,7 @@
         <li class="input_item" style="display: none;">
           <form action="javascript:;">
             <span class="color_point"></span>
-            <input type="text" name="ncreate_item" id="icreate_item" placeholder="回车提交">
+            <input type="text" name="ncreate_item" id="icreate_item" class="item_name" placeholder="回车提交">
           </form>
         </li>
         <li class='li_create'>
@@ -73,17 +73,34 @@
     </div>
     <!-- content end -->
     <div class="footer">
-      <span>src:</span>
-      <a href="https://github.com/lbwa/WebDev/tree/master/todolist/" target="_blank">github /</a>
-      <span class='author'>Created by <a href="https://github.com/lbwa/" target="_blank">lbwa</a></span>
+      <span>Developed by</span>
+      <a href="https://github.com/lbwa/" target="_blank">lbwa</a>
+      <span class='author'> | Contribute on <a href="https://github.com/lbwa/WebDev/tree/master/todolist/" target="_blank">GitHub</a></span>
     </div>
     <!-- footer end -->
     <ul class="menu_ul" style="display:none;">
       <li class="menu_li"><a href="javascript:;" class="delete_link">删除</a></li>
       <li class="menu_li"><a href="javascript:;" class="edit_link">修改</a></li>
     </ul>
-    <div class="backtotop"  style="display:none;">
+    <div class="backtotop" style="display:none;">
       <a href="#"><img src="img/up.png" alt="back to top"></a>
+    </div>
+    <div class="add_item" style="display:none;">
+      <li>
+        <span class="color_point"></span>
+        <span class="li_item"></span>
+        <a href="javascript:;" class="menu_link">...</a>
+      </li>
+    </div>
+    <div class="add_mission_div" style="display:none;">
+      <div class="input_result">
+        <span></span>
+        <span class="current_time"></span>
+        <a href="javascript:;" class="menu_link">...</a>
+      </div>
+    </div>
+    <div class="editer" style='display:none;'>
+      <input type="text" name="nediter" class="item_name">
     </div>
   </div>
 

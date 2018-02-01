@@ -50,7 +50,7 @@ html, body {
 }
 
 .list li span.li_item {
-  padding-left: 20px;
+  margin-left: 20px;
 }
 
 .list li:hover {
@@ -78,7 +78,7 @@ html, body {
   border-radius: 10px;
 }
 
-#icreate_item {
+.item_name {
   margin-left: 20px;
   border: 1px solid #d3d3d3;
   border-radius: 5px;
@@ -90,7 +90,7 @@ html, body {
 
 
 .list .menu_link {
-  padding-right: 20px;
+  margin-right: 20px;
 }
 
 .menu_ul {
@@ -222,11 +222,12 @@ html, body {
 .footer {
   margin: 30px 0;
   text-align: center;
+  color: #a9a9a9;
   font-style: italic;
 }
 
-.author {
-  color: #a9a9a9;
+.footer a {
+  text-decoration: underline;
 }
 
 .backtotop {
