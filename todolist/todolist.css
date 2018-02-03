@@ -48,6 +48,7 @@ html, body {
 .top_section {
   line-height: 40px;
   text-align: center;
+  border-bottom: 1px solid #d3d3d3;
   font-size: 20px;
 }
 
