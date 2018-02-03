@@ -16,7 +16,8 @@ $(document).ready(() => {
     list_li: $('.list li,.add_item li'),
     menu_ul: $('.menu_ul'),
     add_item_li: $('.add_item:last li'),
-    add_mission_div: $('.add_mission_div .input_result')
+    add_mission_div: $('.add_mission_div .input_result'),
+    item_editer: $('.list .item_editer')
   };
 
   app.fn = {
@@ -36,16 +37,16 @@ $(document).ready(() => {
       return now[0];
     },
 
-    createEle: function(target) {
-      if (target.firstElementChild.classList[0] === 'color_point') {
+    createEle: function(id) {
+      if (id === 'icreate_item') {
         // 使用节点复制的方式创建新的item
         let cloneItem = app.parts.add_item_li.clone(true);
-        cloneItem.find('.li_item').text(app.parts.icreate_item.val());
+        cloneItem.find('.item_name').text(app.parts.icreate_item.val());
         app.parts.input_item.before(cloneItem);
         return;
       }
 
-      if (target.children[1].classList[0] === 'add_mission') {
+      if (id === 'iadd_m') {
         let cloneMission = app.parts.add_mission_div.clone(true);
         cloneMission.find('span:first').text(app.parts.add_m.val());
         cloneMission.find('.current_time').text(app.fn.getDate);
@@ -87,43 +88,66 @@ $(document).ready(() => {
         return;
       }
       if (target.classList[0] === 'create_item') {
-        $('#icreate_item').focus();
+        app.parts.icreate_item.focus();
         return;
       }
       // }
     },
 
-    item_editer: function(type) {
+    itemEditer: function(type) {
       let input = {},
-        insert_target = {};
+        form = {},
+        insert_target = {},
+        newValue = '';
       switch (type) {
         case "click":
-          insert_target = $(app.parts.KEEP_TARGET).find('.li_item');
-          app.parts.KEEP_TARGET = $(app.parts.KEEP_TARGET).find('.li_item');
-          input = $('.editer').children('.item_name').clone();
-          input.show();
+          if (app.parts.KEEP_TARGET.classList[0] === 'input_result') {
+            insert_target = $(app.parts.KEEP_TARGET).find('.li_mission');
+          } else {
+            insert_target = $(app.parts.KEEP_TARGET).find('.item_name');
+          }
+          app.parts.KEEP_TARGET = insert_target[0];
+          form = app.parts.item_editer.clone(true);
+          form.attr('id', 'iediter');
+          form.attr('class', 'item_editer');
+          input = form.children('input');
           input.attr('value', insert_target.text());
-          insert_target.replaceWith(input);
+          input.attr('id', 'irevise_item');
+          insert_target.replaceWith(form);
           input.select();
           break;
         case "focusout":
-          insert_target = app.parts.KEEP_TARGET;
-          input = app.parts.list.find('.item_name');
-          let newValue = input.val();
+          if (app.parts.KEEP_TARGET.classList[0] === 'li_mission') {
+            form = app.parts.input_result.find('#iediter');
+          } else {
+            form = app.parts.list.find('#iediter');
+          }
+          insert_target = $(app.parts.KEEP_TARGET);
+          input = form.children('#irevise_item');
+          newValue = input.val();
           insert_target.text(newValue);
-          input.replaceWith(insert_target);
+          form.replaceWith(insert_target);
+          break;
+        case "submit":
+          if (app.parts.KEEP_TARGET.classList[0] === 'li_mission') {
+            form = app.parts.input_result.find('#iediter');
+          } else {
+            form = app.parts.list.find('#iediter');
+          }
+          input = form.children('#irevise_item');
+          input.blur();
           break;
       }
     },
 
-    testValue: function(obj, target) {
-      if (obj.val() != '') {
-        app.fn.createEle(target);
+    testValue: function(id) {
+      if (this.val() != '') {
+        app.fn.createEle(id);
         for (let i = 0, len = $('form').length; i < len; i++) {
           $('form')[i].reset(); // reset form
         }
       } else {
-        obj.blur();
+        this.blur();
       }
     },
 
@@ -134,7 +158,7 @@ $(document).ready(() => {
         output_area.append(app.parts.KEEP_IMG);
         app.parts.KEEP_IMG = null;
       } else if (tag_name) {
-        // 将要删除的图片保存起来
+        // 将要删除的图片指针保存起来
         app.parts.KEEP_IMG = output_area.children('.keep_img');
         output_area.find('.keep_img').remove();
       }
@@ -163,7 +187,7 @@ $(document).ready(() => {
         app.parts.KEEP_TARGET.outerHTML = '';
         break;
       case 'edit_link':
-        app.fn.item_editer('click');
+        app.fn.itemEditer('click');
         break;
     }
     if ($(app.parts.KEEP_TARGET).attr('class') === 'input_result') {
@@ -213,22 +237,31 @@ $(document).ready(() => {
   });
 
   app.parts.list.on('submit', (event) => {
-    let target = event.target;
-    app.fn.testValue(app.parts.icreate_item, target);
+    let id = $(event.target).children('input').attr('id');
+    switch (id) {
+      case 'icreate_item':
+        app.fn.testValue.call(app.parts.icreate_item, id);
+        break;
+      case 'irevise_item':
+        app.fn.itemEditer('submit');
+        break;
+
+    }
   });
 
   app.parts.list.on('focusout', (event) => {
-    if ($(event.target).attr('id') === 'icreate_item') {
+    let target = $(event.target);
+    if (target.attr('id') === 'icreate_item') {
       app.parts.input_item.hide(200);
       return;
     }
-    if ($(event.target).attr('class') === 'menu_link') {
-      // 失去焦点事件先于点击事件，所以设置延迟
-      app.parts.menu_ul.hide(400);
+    if (target.attr('id') === 'irevise_item') {
+      app.fn.itemEditer('focusout');
       return;
     }
-    if ($(event.target).attr('class') === 'item_name') {
-      app.fn.item_editer('focusout');
+    if (target.attr('class') === 'menu_link') {
+      // 失去焦点事件先于点击事件，所以设置延迟
+      app.parts.menu_ul.hide(400);
       return;
     }
   });
@@ -251,19 +284,31 @@ $(document).ready(() => {
   });
 
   app.parts.todo_area.on('focusout', (event) => {
-    if ($(event.target).attr('id') === 'iadd_m') {
+    let target = $(event.target);
+    if (target.attr('id') === 'iadd_m') {
       app.parts.add_m.hide(200);
       return;
     }
-    if ($(event.target).attr('class') === 'menu_link') {
+    if (target.attr('id') === 'irevise_item') {
+      app.fn.itemEditer('focusout');
+      return;
+    }
+    if (target.attr('class') === 'menu_link') {
       app.parts.menu_ul.hide(200);
       return;
     }
   });
 
   app.parts.todo_area.on('submit', (event) => {
-    let target = event.target;
-    app.fn.testValue(app.parts.add_m, target);
+    let id = $(event.target).children('input').attr('id');
+    switch (id) {
+      case 'iadd_m':
+        app.fn.testValue.call(app.parts.add_m, id);
+        break;
+      case 'irevise_item':
+        app.fn.itemEditer('submit');
+        break;
+    }
   });
 
   $(window).on('scroll', (event) => {
