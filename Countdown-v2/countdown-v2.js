@@ -33,7 +33,7 @@ let trigger = function(event) {
     min = document.querySelector('#myMin').value,
     sec = document.querySelector('#mySec').value,
     last = parseInt(3600 * hour) + parseInt(60 * min) + parseInt(sec);
-  if (isNaN(last)) {     // 化整数的第二计划
+  if (isNaN(last)) { // 化整数的第二计划
     last = Number(3600 * hour) + Number(60 * min) + Number(sec);
   }
 
@@ -62,6 +62,17 @@ let trigger = function(event) {
         runTime(_sec[1], sec % 10);
         document.body.addEventListener('keypress', trigger, false); // 恢复输入
         outputarea.innerText = 'Time\'s up !';
+      }
+      if ((sec % 10) % 2 != 0) {
+        [0, 1].forEach((number) => {
+          console.log('on');
+          document.querySelectorAll('.point')[number].classList.remove('on');
+        });
+      } else {
+        [0, 1].forEach((number) => {
+          console.log('false');
+          document.querySelectorAll('.point')[number].classList.add('on');
+        });
       }
     })();
   }
