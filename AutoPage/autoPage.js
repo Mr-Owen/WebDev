@@ -25,11 +25,12 @@
 // 已设置list容器的宽度为1200px，可调节该宽度，保证有list类宽度/img_width == img_len成立，否则多余的图将显示为空白
 
 let get_animate = (() => {
-  let list = document.querySelector(".list"),
-    box = document.querySelector(".content"),
-    span = document.querySelectorAll("span"),
-    img_len = document.querySelectorAll("img").length,
-    img_width = document.querySelector("img").width,
+  let $ = document.querySelectorAll.bind(document),
+    list = $(".list")[0],
+    box = $(".content")[0],
+    span = $("span"),
+    img_len = $("img").length,
+    img_width = $("img")[0].width,
     max_left = -(img_len - 1) * img_width,
     img_timer = 0,
     img_index = 1;
@@ -37,6 +38,7 @@ let get_animate = (() => {
     _box: box,
     _list: list,
     _width: img_width,
+
     animate: (num, tg) => {
       let digit = parseInt(list.style.left, 10);
       switch (digit) {
@@ -80,7 +82,7 @@ let get_animate = (() => {
   };
 })();
 
-window.addEventListener("load", function(event) {
+window.addEventListener("load", function(evt) {
   let clock = setInterval(function() {
     let index = get_animate.animate(-get_animate._width);
     get_animate.point(index);
@@ -88,8 +90,8 @@ window.addEventListener("load", function(event) {
   get_animate.timer(clock);
 }, false);
 
-get_animate._box.addEventListener("click", function(event) {
-  let target = event.target.classList[0];
+get_animate._box.addEventListener("click", function(evt) {
+  let target = evt.target.classList[0];
   if (target == "prev") {
     let index = get_animate.animate(get_animate._width, target);
     get_animate.point(index);
@@ -99,18 +101,19 @@ get_animate._box.addEventListener("click", function(event) {
     get_animate.point(index);
   }
   // click points
-  if (event.target.tagName == "SPAN") {
-    let page = event.target.getAttribute("data-value");
+  if (evt.target.tagName == "SPAN") {
+    let page = evt.target.getAttribute("data-value");
     get_animate._list.style.left = -get_animate._width * (page - 1) + "px";
     get_animate.point(page);
   }
 }, false);
 
 // Event mouse
-get_animate._box.addEventListener("mouseover", (event) => {
+get_animate._box.addEventListener("mouseover", (evt) => {
   get_animate.timer();
 }, false);
-get_animate._box.addEventListener("mouseout", (event) => {
+
+get_animate._box.addEventListener("mouseout", (evt) => {
   let clock = setInterval(function() {
     let index = get_animate.animate(-get_animate._width);
     get_animate.point(index);
