@@ -1,5 +1,9 @@
-body {
-  background: #111;
+html,body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url(./img/bg-img.jpg) no-repeat #111;
+  background-size: cover;
 }
 
 .clock {

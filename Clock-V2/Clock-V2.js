@@ -1,59 +1,77 @@
 /* jshint esversion: 6 */
-let num = [
-  [0, 1, 2, 3, 4, 5], // 0
-  [1, 2],
-  [0, 1, 6, 4, 3],
-  [0, 1, 6, 2, 3],
-  [5, 6, 1, 2],
-  [0, 5, 6, 2, 3],
-  [0, 5, 4, 3, 2, 6],
-  [0, 1, 2],
-  [0, 1, 2, 3, 4, 5, 6],
-  [0, 5, 6, 1, 2, 3]
-];
+let app = (function() {
+  const $ = document.querySelectorAll.bind(document),
+    num = [
+      [0, 1, 2, 3, 4, 5], // 0
+      [1, 2],
+      [0, 1, 6, 4, 3],
+      [0, 1, 6, 2, 3],
+      [5, 6, 1, 2],
+      [0, 5, 6, 2, 3],
+      [0, 5, 4, 3, 2, 6],
+      [0, 1, 2],
+      [0, 1, 2, 3, 4, 5, 6],
+      [0, 5, 6, 1, 2, 3]
+    ],
+    _hour = $('.hour'),
+    _min = $('.min'),
+    _sec = $('.sec'),
+    time = [_hour[0], _hour[1], _min[0], _min[1], _sec[0], _sec[1]];
 
-let setTime = (digit, nowTime) => {
-  let part = digit.querySelectorAll('.part'),
-    current = parseInt(digit.getAttribute('data-value'));
-  if (!isNaN(current) && current != nowTime) {
-    num[current].forEach((num) => {
-      part[num].classList.remove('on');
-    });
-  }
-  if (isNaN(current) || current != nowTime) {
-    num[nowTime].forEach((num, index) => {
-      part[num].classList.add('on');
-    });
-  }
-  digit.setAttribute('data-value', nowTime);
-};
+  return {
 
-// trigger
-let trigger = (event) => {
-  let _hour = document.querySelectorAll('.hour'),
-    _min = document.querySelectorAll('.min'),
-    _sec = document.querySelectorAll('.sec');
-  setInterval(() => {
-    let now = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
-    setTime(_hour[0], now[1]);
-    setTime(_hour[1], now[2]);
-    setTime(_min[0], now[3]);
-    setTime(_min[1], now[4]);
-    setTime(_sec[0], now[5]);
-    setTime(_sec[1], now[6]);
-    if (now[6] % 2 != 0) {
-      [0, 1, 2, 3].forEach((number) => {
-        document.querySelectorAll('.point')[number].classList.remove('on');
+    setTime: function(nowTime) {
+
+      let part = this.querySelectorAll('.part'),
+        current = parseInt(this.getAttribute('data-value'));
+      if (!isNaN(current) && current != nowTime) {
+        num[current].forEach((num) => {
+          part[num].classList.remove('on');
+        });
+      }
+      if (isNaN(current) || current != nowTime) {
+        num[nowTime].forEach((num, index) => {
+          part[num].classList.add('on');
+        });
+      }
+      this.setAttribute('data-value', nowTime);
+    },
+
+    runTime: function() {
+
+      let now = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+      [0, 1, 2, 3, 4, 5].forEach((i) => {
+        app.setTime.call(time[i], now[i + 1]);
       });
-    } else {
-      [0, 1, 2, 3].forEach((number) => {
-        document.querySelectorAll('.point')[number].classList.add('on');
-      });
+      // 位运算符速度快于普通数学运算符，这里判断奇偶数最低位是1或0
+      if (now[6] % 2 != 0) {
+        [0, 1, 2, 3].forEach((number) => {
+          $('.point')[number].classList.remove('on');
+        });
+      } else {
+        [0, 1, 2, 3].forEach((number) => {
+          $('.point')[number].classList.add('on');
+        });
+      }
+    },
+
+    // trigger
+    trigger: function(evt) {
+
+      const runTime = app.runTime;  // 减少属性访问
+      return new Promise((resolve, reject) => {
+          resolve();
+        })
+        // Promise 类型用于解决“回调地狱”，此处后可使用then方法，用于未来补充回调函数
+        .then((evt) => setInterval(runTime, 1000))
+        .catch((err) => {
+          console.log('Oops!Something wrong!Plese check your function trigger!');
+        });
     }
-  }, 1000);
 
-};
-window.addEventListener('load', trigger, false);
+  };
+})();
+window.addEventListener('load', app.trigger, false);
 
 // 思路：
 // 关键点：每个数字由七个区域显示
