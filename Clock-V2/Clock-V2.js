@@ -38,7 +38,7 @@ let app = (function() {
       this.setAttribute('data-value', nowTime);
     },
 
-    // ES6 Generation函数具有惰性求值（有暂停态）的特点，在语义上更适合此处“闪烁圆点”
+    // ES6 Generator 函数具有惰性求值（有暂停态）的特点，在语义上更适合此处“闪烁圆点”
     tickingPoint: function* () {
       const point = $('.point');
       while (true) {
