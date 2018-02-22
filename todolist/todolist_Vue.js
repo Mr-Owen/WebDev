@@ -15,8 +15,9 @@ let vm = new Vue({
         return;
       }
       const obj = Object.assign({},{id:this.index,text:this.member});
-      this.index += 1;
       this.items.push(obj);
+      this.index += 1;
+      this.member = '';
     }
   },
   components:{
